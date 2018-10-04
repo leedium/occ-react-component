@@ -1,1 +1,11 @@
-<div id="occReactComponent"></div>
+<div data-bind="" class="" data-oc-id="a-widget">
+  <!-- oc layout: panels -->
+  <div class="row">
+    <div class="oc-panel col-md-5" data-oc-id="panel-0-0">
+      <!-- oc section: occ-react-component -->
+      <div data-bind="onRender: onRender" id="occReactComponent"></div>
+      <!-- /oc -->
+    </div>
+  </div>
+  <!-- /oc -->
+</div>
