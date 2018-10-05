@@ -1,31 +1,23 @@
 const path = require("path");
 const webpack = require("webpack");
 // const JavaScriptObfuscator = require('webpack-obfuscator');
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+//   .BundleAnalyzerPlugin;
 
-
-///////////////
-//  Configuration
-
-const componentName = "occReactComponent"
-
-
-
-///////////////
-
-
-
+const componentConfig = require("./componentConfig");
 
 const config = {
   // mode: 'development',
   entry: {
-    index: "./app/js/App.jsx"
+    index: "./app/js/index.jsx"
   },
   devtool:
     process.env.NODE_ENV === "development" ? "cheap-eval-source-map" : false,
   output: {
-    path: path.resolve(__dirname, `dist/widget/${componentName}/js`),
+    path: path.resolve(
+      __dirname,
+      `dist/widget/${componentConfig.componentName}/js`
+    ),
     filename: "bundle.js",
     chunkFilename: "[name].js",
     // publicPath: "/file/widget/anotherWidget/js/",
@@ -45,8 +37,10 @@ const config = {
     numberFormatHelper: "numberFormatHelper",
     "ojs/ojcore": "ojs/ojcore",
     "ojs/ojvalidation": "ojs/ojvalidation",
-    "react": "https://unpkg.com/react@16/umd/react.production.min.js",
-    "react-dom": "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js",
+    react: "https://unpkg.com/react@16.5.2/umd/react.production.min",
+    "react-dom":
+      "https://unpkg.com/react-dom@16.5.2/umd/react-dom.production.min",
+    redux: "https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.min"
   },
   devServer: {
     hot: true,
@@ -56,8 +50,8 @@ const config = {
   resolve: {
     extensions: [".js", ".jsx", ".json"],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat'
+      // react: 'preact-compat',
+      // 'react-dom': 'preact-compat'
     }
   },
   stats: {
@@ -66,7 +60,7 @@ const config = {
     chunks: false
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()
     // new BundleAnalyzerPlugin()
     // new JavaScriptObfuscator ({
@@ -112,10 +106,10 @@ const config = {
   }
 };
 
-if (process.env.NODE_ENV === "development") {
-  config.entry.unshift(
-    "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000"
-  );
-}
+// if (process.env.NODE_ENV === "development") {
+//   config.entry.unshift(
+//     "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000"
+//   );
+// }
 
 module.exports = config;
