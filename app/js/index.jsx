@@ -5,19 +5,31 @@ import ReactDOM from 'react-dom';
 
 //
 import Application from "./app/App";
+import occProvider from './app/occProvider/OccProvider';
 
-define(["knockout"], function def (ko) {
+define([
+  "knockout",
+  "jquery",
+  "pubsub",
+  "notifier",
+  "ccConstants",
+  ], function def (ko, $, pubsub, notifier, CCConstants) {
   let App;
   return {
     inited: false,
     onLoad(model){
-      App = <Application />;
+      const occDependencies = {
+        ko, $, pubsub, notifier, CCConstants
+      };
+      App = occProvider(Application,{
+        model,
+        occDependencies
+      })
     },
     beforeAppear(model) {
     },
     onRender() {
-      console.log(this, ko, document.getElementById('occReactComponent'));
-      ReactDOM.render(App, document.getElementById('occReactComponent'));
+      ReactDOM.render(<App />, document.getElementById('adyenPaymentDetails'));
     }
   }
 });
