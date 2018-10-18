@@ -1,6 +1,7 @@
 # occ-react-component
 Standalone Starter React Component for Oracle Commerce Cloud
 
+- React 16
 - Webpack 4
 - Babel 7
 - eslint
