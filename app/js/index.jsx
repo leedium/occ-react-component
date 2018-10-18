@@ -29,7 +29,7 @@ define([
     beforeAppear(model) {
     },
     onRender() {
-      ReactDOM.render(<App />, document.getElementById('adyenPaymentDetails'));
+      ReactDOM.render(<App />, document.getElementById('componentId'));
     }
   }
 });
