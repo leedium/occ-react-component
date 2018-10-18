@@ -6,8 +6,8 @@ Standalone Starter React Component for Oracle Commerce Cloud
 - Babel 7
 - eslint
 
-This package will allows OCC developers to develop React Components with JSX
-with real time Require.js AMD compilation.
+This package will allows OCC developers to develop React Components with JSX 
+with real time compilation to Require.js AMD OCC modules.
 The Application is compiled to dist/bundle preserving the normal folder structure for a widget.
 Of course this can all be configured in webpack.config.js
 
