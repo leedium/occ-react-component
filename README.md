@@ -40,12 +40,12 @@ npm run watch
 
 ## Configuration
 
-Add all OCC require.js dependencies required for your app in componentConfig.js
+Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in componentConfig.js
 These will be shimed and made available at runtime to your application.
 
 #### app/js/index.jsx
 
-Main OCC widget entry file.  This is the react equivalent to the main OCC widget file
+Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") widget entry file.  This is the react equivalent to the main OCC widget file
 
 
 #### dist/widget
