@@ -3,7 +3,7 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 
 - [React 16](https://reactjs.org/ "React")
 - [Webpack 4](https://webpack.js.org/ "React") 
-- [Babel 7](https://babeljs.io/ "Babel 7")  . 
+- [Babel 7](https://babeljs.io/ "Babel 7")
 - [eslint](https://eslint.org/ "Eslint")
 
 This package will allows [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to develop [React 16](https://reactjs.org/ "React") JSX Components real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
