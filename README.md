@@ -1,12 +1,12 @@
 # occ-react-component
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
-- React 16
-- Webpack 4
-- Babel 7
-- eslint
+- [React 16](https://reactjs.org/ "React")
+- [Webpack 4](https://webpack.js.org/ "React") 
+- [Babel 7](https://babeljs.io/ "Babel 7")  . 
+- [eslint](https://eslint.org/ "Eslint")
 
-This package will allows OCC developers to develop React JSX Components real time compilation to Require.js AMD OCC modules.
+This package will allows OCC developers to develop [React 16](https://reactjs.org/ "React") JSX Components real time compilation to Require.js AMD OCC modules.
 The Application is compiled to dist/bundle preserving the normal folder structure for a widget.
 Of course this can all be configured in webpack.config.js
 
