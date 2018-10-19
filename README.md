@@ -13,7 +13,7 @@ Of course this can all be configured in webpack.config.js
 ### Installation
 
 1. Install the OCC React global application widget.
-https://github.com/leedium/occ-react-global/blob/master/README.md
+[occ-react-component](https://github.com/leedium/occ-react-global/blob/master/README.md "occ-react-component")
 
 2.  Install the dependencies
 
