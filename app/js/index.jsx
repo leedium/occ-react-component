@@ -46,8 +46,8 @@ define([
     },
     beforeAppear (model) {
     },
-    onRender () {
-      ReactDOM.render(<App/>, document.getElementById('adyenPaymentDetails'));
+    onRender() {
+      ReactDOM.render(<App />, document.getElementById('componentId'));
     }
   }
 });
