@@ -6,7 +6,7 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 - [Babel 7](https://babeljs.io/ "Babel 7")
 - [eslint](https://eslint.org/ "Eslint")
 
-This package will allows [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to develop [React 16](https://reactjs.org/ "React") JSX Components real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
+This package allows [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to develop [React 16](https://reactjs.org/ "React") JSX Components real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
 The Application is compiled to dist/bundle preserving the normal folder structure for a widget.
 Of course this can all be configured in webpack.config.js
 
