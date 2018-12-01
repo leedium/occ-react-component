@@ -1,8 +1,6 @@
 # occ-react-component
 Standalone Starter [React](https://reactjs.org/ "React") Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
-Check out the [React Solution for Oracle Commerce cloud](https://github.com/leedium/occ-react-solution "Oracle Commerce Cloud React Solution") for a working proof on concept of how to use React as a quasi headless UI framework integrated into the OCC Admin. 
-
 ##### OCC version 16+
 
 - [React 16](https://reactjs.org/ "React")
@@ -49,16 +47,18 @@ npm run watch
 Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in componentConfig.js
 These will be shimed and made available at runtime to your application.
 
-#### app/js/index.jsx
+#### Entry File: app/js/index.jsx
 
 Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") widget entry file.  This is the react equivalent to the main OCC widget file
 
 
-#### dist/widget
+#### Published folder: dist/widget
 
 React component will compile to this folder preserving the normal widget structure.
 Add normal localized resource files here.
 
 
+#### Related
+Check out the [React Solution for Oracle Commerce cloud](https://github.com/leedium/occ-react-solution "Oracle Commerce Cloud React Solution") for a working proof on concept of how to use React as a quasi headless UI framework integrated into the OCC Admin. 
 
 
