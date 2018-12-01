@@ -14,6 +14,8 @@ This package allows [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/i
 The Application is compiled to dist/bundle preserving the normal folder structure for a widget.
 Of course this can all be configured in webpack.config.js
 
+The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
+
 ### Installation
 
 1. Install the OCC React global application widget.
