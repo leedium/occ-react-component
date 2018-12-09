@@ -24,7 +24,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Application from "./app/App";
+import ReactApplication from "./app/App";
 import occProvider from './app/occProvider/OccProvider';
 
 define([
@@ -35,19 +35,20 @@ define([
   "ccConstants",
   "ccLogger"
 ], function def (ko, $, pubsub, notifier, CCConstants, logger) {
+
   let App;
+
   return {
-    inited: false,
     onLoad (model) {
       const occDependencies = {
         ko, $, pubsub, notifier, CCConstants, logger
       };
-      App = occProvider(Application, {
+
+      // Mode and dependencies get injected into your App here.
+      App = occProvider(ReactApplication, {
         model,
         occDependencies
       })
-    },
-    beforeAppear (model) {
     },
     onRender() {
       ReactDOM.render(<App />, document.getElementById('occReactComponent'));

@@ -14,7 +14,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "react": "^16.5.2",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-es2015": "^7.0.0-beta.53",
@@ -44,6 +43,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "flow-bin": "^0.81.0",
     "prettier": "^1.14.3",
+    "react": "^16.5.2",
     "react-dom": "^16.6.3",
     "react-hot-loader": "^4.3.10",
     "react-test-renderer": "^16.5.2",

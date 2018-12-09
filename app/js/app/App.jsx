@@ -15,7 +15,7 @@
  * @createdBy davidlee
  * @contact david@leedium.com
  * @dateCreated 21/10/2018
- * @description  Sample Application.. knock urself out from here...
+ * @description  Sample ReactApplication.. knock urself out from here...
  */
 
 import React, { Component } from "react";
@@ -28,8 +28,10 @@ type Props = {
 class App extends Component<Props> {
   render() {
     const { model, occDependencies } = this.props;
-    occDependencies.logger.info("Hello from Winston logger...");
-    console.log(model, occDependencies);
+    const { logger } = occDependencies;
+    logger.info("[occ-react-component]: Hello from OCC's Winston logger... :) ");
+    console.log(`[occ-react-component]:  widget model:`,model);
+    console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
     return (
       <div>This is a React Application</div>
     );
