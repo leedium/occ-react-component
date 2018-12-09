@@ -5,7 +5,7 @@
  * source code package.
  */
 
-/* eslint react/prefer-stateless-function: 0 */
+/* eslint react/prefer-stateless-function: 0, import/no-extraneous-dependencies: 0  */
 
 /**
  * @project occ-react-component
