@@ -54,7 +54,7 @@ Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Orac
 
 #### dist/widget
 React component will compile to this folder preserving the normal widget structure.
-Add normal localized resource files here.  Template/layour files reference the element you will use to render your React application. Make sure you update this.
+Add normal localized resource files here.  Template/layout files reference the element you will use to render your React application. Make sure you update this.
 
 
 #### Credits
