@@ -1,7 +1,5 @@
 # occ-react-component
-Standalone Starter [React](https://reactjs.org/ "React") Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
-
-##### OCC version 16+
+Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
 - [React 16](https://reactjs.org/ "React")
 - [Webpack 4](https://webpack.js.org/ "Webpack") 
@@ -9,25 +7,26 @@ Standalone Starter [React](https://reactjs.org/ "React") Component for [Oracle C
 - [eslint](https://eslint.org/ "Eslint")
 
 This package will allows [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to develop [React 16](https://reactjs.org/ "React") JSX Components with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
-The Application is compiled to `dist/` preserving the normal folder structure for a widget.
-
+The ReactApplication is compiled to `dist/` preserving the normal folder structure for a widget.
+The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
 Of course this can all be configured in webpack.config.js
 
-The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
-
-### Installation
-
-1. Install the OCC React global application widget.
+### Dependencies
+Install the OCC React global application widget.
 [occ-react-component](https://github.com/leedium/occ-react-global/blob/master/README.md "occ-react-component")
 
-2.  Install the dependencies
 
+### Installation
 ```
 npm i
 ```
 
 ### Instructions
+/app/js/app/App.jsx is your Main react application file.  Use this as your staring point.
+The inject props include the widget model, and all your defined dependencies.
 
+
+### Build
 dev build
 ```
 npm run build:dev
@@ -43,28 +42,27 @@ watcher
 npm run watch
 ```
 
-## Configuration
+## Development Process
+*Install the component in OCC and then use a proxy like [Charles](https://www.charlesproxy.com/) to map to your bundle(s) while the watcher is running so you can see changes immediately upon refresh.
 
-Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in componentConfig.js
+## Configuration
+Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `componentConfig.js`
 These will be shimed and made available at runtime to your application.
 
-#### Entry File: app/js/index.jsx
-
+#### app/js/index.jsx
 Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") widget entry file.  This is the react equivalent to the main OCC widget file
 
-
-
-#### Published folder: dist/widget
-
+#### dist/widget
 React component will compile to this folder preserving the normal widget structure.
-Add normal localized resource files here.  Template files reference the element you will use to render your React application.
+Add normal localized resource files here.  Template/layour files reference the element you will use to render your React application. Make sure you update this.
+
 
 #### Credits
 Thanks [@bholt](https://github.com/btholt) for the react starter pak.
 
 
 #### Related
-Check out the [React Solution for Oracle Commerce cloud](https://github.com/leedium/occ-react-solution "Oracle Commerce Cloud React Solution") for a working proof on concept of how to use React as a quasi headless UI framework integrated into the OCC Admin. 
+Check out the [React Solution for Oracle Commerce cloud](https://github.com/leedium/occ-react-solution "Oracle Commerce Cloud React Solution") for a working proof on concept of how to use React as a quasi headless UI framework integrated into the OCC Admin.
 
 
 <br/><br/><br/>
