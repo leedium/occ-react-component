@@ -16,7 +16,7 @@
  * @dateCreated 21/10/2018
  * @description Main entry file that maps occ model and dependencies to the
  *              React component props
-**/
+ */
 
 
 import React from 'react';
@@ -31,13 +31,14 @@ define([
   "pubsub",
   "notifier",
   "ccConstants",
-], function def (ko, $, pubsub, notifier, CCConstants) {
+  "ccLogger"
+], function def (ko, $, pubsub, notifier, CCConstants, logger) {
   let App;
   return {
     inited: false,
     onLoad (model) {
       const occDependencies = {
-        ko, $, pubsub, notifier, CCConstants
+        ko, $, pubsub, notifier, CCConstants, logger
       };
       App = occProvider(Application, {
         model,
@@ -47,7 +48,7 @@ define([
     beforeAppear (model) {
     },
     onRender() {
-      ReactDOM.render(<App />, document.getElementById('componentId'));
+      ReactDOM.render(<App />, document.getElementById('occReactComponent'));
     }
   }
 });

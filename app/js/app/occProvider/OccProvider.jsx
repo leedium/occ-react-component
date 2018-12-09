@@ -5,6 +5,8 @@
  * source code package.
  */
 
+/* eslint react/prefer-stateless-function: 0 */
+
 /**
  * @project occ-react-component
  * @file OccProvider.jsx
@@ -14,25 +16,22 @@
  * @dateCreated 21/10/2018
  * @description Higher order component to pass through OCC props to
  *              Wrapped Component
-**/
+ */
 
 
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-function OccProvider (WrappedComponent, occData) {
+function OccProvider(WrappedComponent, occData) {
   return class extends Component {
-    constructor (props, context) {
-      super(props, context);
-    }
-    render () {
-      const {children} = this.props;
+    render() {
+      const { children } = this.props;
       return (
         <WrappedComponent {...occData}>
           {children}
         </WrappedComponent>
-      )
+      );
     }
-  }
+  };
 }
 
 export default OccProvider;
