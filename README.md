@@ -1,4 +1,4 @@
-# occ-react-component
+# [occ-react-component](https://github.com/leedium/occ-react-component "React Component Starter for Oracle Commerce Cloud")
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
 - [React 16](https://reactjs.org/ "React")
