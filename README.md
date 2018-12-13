@@ -15,6 +15,9 @@ Of course this can all be configured in webpack.config.js
 Install the OCC React global application widget.
 [occ-react-global](https://github.com/leedium/occ-react-global/blob/master/README.md "occ-react-component")
 
+There are no production level dependencies for React out of the box as they are included in the global component.
+Feel free to add more to the global and your component application.
+
 
 ### Installation
 ```
