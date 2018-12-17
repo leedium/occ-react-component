@@ -2,7 +2,7 @@
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
 - [React 16](https://reactjs.org/ "React")
-- [Webpack 4](https://webpack.js.org/ "Webpack") 
+- [Webpack 4](https://webpack.js.org/ "Webpack")
 - [Babel 7](https://babeljs.io/ "Babel 7")
 - [eslint](https://eslint.org/ "Eslint")
 
@@ -10,6 +10,13 @@ This package will allows [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cl
 The ReactApplication is compiled to `dist/` preserving the normal folder structure for a widget.
 The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
 Of course this can all be configured in webpack.config.js
+
+Example Includes
+- style-loader - (injects styles in dom)
+- css-loader (css-modules, css compilation)
+- postcss-loader (css-processing)
+- base64-inline-loader (converts image paths to base64 references)
+
 
 ### Dependencies
 Install the OCC React global application widget.
