@@ -1,4 +1,4 @@
-# occ-react-component
+# [occ-react-component](https://github.com/leedium/occ-react-component "React Component Starter for Oracle Commerce Cloud")
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
 <img src="https://github.com/leedium/occ-react-component/blob/develop/example.png" width="60%" />
@@ -12,7 +12,7 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 - [Babel 7](https://babeljs.io/ "Babel 7")
 - [eslint](https://eslint.org/ "Eslint")
 
-This package will allows [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to develop [React 16](https://reactjs.org/ "React") JSX Components with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
+This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to develop [React 16](https://reactjs.org/ "React") JSX Components with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
 The ReactApplication is compiled to `dist/` preserving the normal folder structure for a widget.
 The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
 Of course this can all be configured in webpack.config.js
@@ -26,7 +26,11 @@ Of course this can all be configured in webpack.config.js
 
 ### Dependencies
 Install the OCC React global application widget.
-[occ-react-global](https://github.com/leedium/occ-react-global/blob/master/README.md "occ-react-global")
+[occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global")
+
+There are no production level dependencies for React out of the box as they are included in the global component.
+Feel free to add more to the global and your component application.
+
 
 
 ### Installation
@@ -70,7 +74,7 @@ Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Orac
 
 #### dist/widget
 React component will compile to this folder preserving the normal widget structure.
-Add normal localized resource files here.  Template/layour files reference the element you will use to render your React application. Make sure you update this.
+Add normal localized resource files here.  Template/layout files reference the element you will use to render your React application. Make sure you update this.
 
 
 #### Credits
