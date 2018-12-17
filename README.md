@@ -1,6 +1,8 @@
 # occ-react-component
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
+<img src="https://github.com/leedium/occ-react-component/blob/develop/example.png" width="60%" />
+
 - [React 16](https://reactjs.org/ "React")
 - [Webpack 4](https://webpack.js.org/ "Webpack")
 - [Babel 7](https://babeljs.io/ "Babel 7")
