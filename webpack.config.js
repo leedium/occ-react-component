@@ -1,7 +1,14 @@
 const path = require("path");
 const webpack = require("webpack");
+const postcssImageSizes = require('postcss-image-sizes');
+const postcssNested = require('postcss-nested');
+const postcssImport = require('postcss-import');
+const postcssPresetEnv = require('postcss-preset-env');
+const cssnano = require('cssnano');
 
 const componentConfig = require("./componentConfig");
+
+
 
 const config = {
   // mode: 'development',
@@ -12,11 +19,12 @@ const config = {
     process.env.NODE_ENV === "development" ? "cheap-eval-source-map" : false,
   output: {
     path: path.resolve(
-      __dirname,
-      `dist/widget/${componentConfig.componentName}/js`
+      __dirname,componentConfig.publicPath
+
     ),
     filename: "bundle.js",
     chunkFilename: "[name].js",
+    publicPath: componentConfig.publicPath,
     libraryTarget: "amd"
   },
   externals: componentConfig.dependencies,
@@ -67,11 +75,11 @@ const config = {
             loader: "postcss-loader",
             options: {
               plugins: (loader) => [
-                require('postcss-image-sizes')({assetsPath: 'app/js/app/images'}),
-                require('postcss-nested'),
-                require('postcss-import')({ root: loader.resourcePath }),
-                require('postcss-preset-env')(),
-                require('cssnano')()
+                postcssImageSizes({assetsPath: 'app/js/app/images'}),
+                postcssNested,
+                postcssImport({ root: loader.resourcePath }),
+                postcssPresetEnv(),
+                cssnano()
               ]
             }
           }

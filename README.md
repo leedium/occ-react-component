@@ -26,10 +26,11 @@ Of course this can all be configured in webpack.config.js
 
 ### Dependencies
 Install the OCC React global application widget.
-[occ-react-global](https://github.com/leedium/occ-react-global/blob/master/README.md "occ-react-component")
+[occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global")
 
 There are no production level dependencies for React out of the box as they are included in the global component.
 Feel free to add more to the global and your component application.
+
 
 
 ### Installation
@@ -63,7 +64,10 @@ npm run watch
 
 ## Configuration
 Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `componentConfig.js`
-These will be shimed and made available at runtime to your application.
+These will be shimed and made available at runtime to your application.  
+Also update the react version.  This should be directly in line with the [occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global") version
+                                                                         
+
 
 #### app/js/index.jsx
 Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") widget entry file.  This is the react equivalent to the main OCC widget file
