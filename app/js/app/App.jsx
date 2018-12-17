@@ -20,6 +20,10 @@
 
 import React, { Component } from "react";
 
+import css from "./styles/styles.css";
+
+console.log(css);
+
 type Props = {
   occDependencies: {},
   model: {}
@@ -30,10 +34,13 @@ class App extends Component<Props> {
     const { model, occDependencies } = this.props;
     const { logger } = occDependencies;
     logger.info("[occ-react-component]: Hello from OCC's Winston logger... :) ");
-    console.log(`[occ-react-component]:  widget model:`,model);
+    console.log(`[occ-react-component]:  widget model:`, model);
     console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
     return (
-      <div>This is a React Application</div>
+      <div className={css["occ-react-component"]}>
+        <div className={css.logo} />
+        <p>This is a React Application</p>
+      </div>
     );
   }
 }
