@@ -12,10 +12,10 @@ The component wraps the knockout.js view model and injects both the model and de
 Of course this can all be configured in webpack.config.js
 
 Example Includes
-- style-loader - (injects styles in dom)
-- css-loader (css-modules, css compilation)
-- postcss-loader (css-processing)
-- base64-inline-loader (converts image paths to base64 references)
+- [style-loader](https://github.com/webpack-contrib/style-loader) - (injects styles in dom)
+- [css-loader](https://github.com/webpack-contrib/css-loader) (css-modules, css compilation)
+- [postcss-loader](https://github.com/postcss/postcss-loader) (css-processing)
+- [base64-inline-loader](https://github.com/monolithed/base64-inline-loader#readme) (converts image paths to base64 references)
 
 
 ### Dependencies
