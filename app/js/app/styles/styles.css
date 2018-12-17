@@ -1,0 +1,15 @@
+.occ-react-component {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 50px;
+
+  .logo {
+    background: url("../images/logo.png") no-repeat;
+    width: image-width('~logo.png');
+    height: image-height('~logo.png');
+  }
+
+}
+
+

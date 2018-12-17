@@ -1,8 +1,11 @@
 # [occ-react-component](https://github.com/leedium/occ-react-component "React Component Starter for Oracle Commerce Cloud")
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
+<img src="https://github.com/leedium/occ-react-component/blob/develop/example.png" width="60%" />
+
+### Included 
 - [React 16](https://reactjs.org/ "React")
-- [Webpack 4](https://webpack.js.org/ "Webpack") 
+- [Webpack 4](https://webpack.js.org/ "Webpack")
 - [Babel 7](https://babeljs.io/ "Babel 7")
 - [eslint](https://eslint.org/ "Eslint")
 
@@ -10,6 +13,13 @@ This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-clo
 The ReactApplication is compiled to `dist/` preserving the normal folder structure for a widget.
 The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
 Of course this can all be configured in webpack.config.js
+
+### Example Webpack Plugins 
+- [style-loader](https://github.com/webpack-contrib/style-loader) - (injects styles in dom)
+- [css-loader](https://github.com/webpack-contrib/css-loader) (css-modules, css compilation)
+- [postcss-loader](https://github.com/postcss/postcss-loader) (css-processing)
+- [base64-inline-loader](https://github.com/monolithed/base64-inline-loader#readme) (converts image paths to base64 references)
+
 
 ### Dependencies
 Install the OCC React global application widget.
