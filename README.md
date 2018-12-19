@@ -44,14 +44,18 @@ Of course this can all be configured in webpack.config.js
 - [postcss-image-sizes](https://github.com/s0ber/postcss-image-sizes) (adds image sizes to the css class that references images)
 - [base64-inline-loader](https://github.com/monolithed/base64-inline-loader#readme) (converts image paths to base64 references)
 
-This exmaple uses styled-components which helps to organize, encapsulate, and associate styling to the
+This example uses styled-components which helps to organize, encapsulate, and associate styling to the
 actual component.  This reduces load/reques of files, avoids class name collisions, improved
 maintenance   
 
 
 ### Dependencies
 Install the OCC React global application widget.
-[occ-react-global](https://github.com/leedium/occ-react-global/blob/master/README.md "occ-react-global")
+[occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global")
+
+There are no production level dependencies for React out of the box as they are included in the global component.
+Feel free to add more to the global and your component application.
+
 
 
 ### Installation
@@ -93,7 +97,7 @@ Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Orac
 
 #### dist/widget
 React component will compile to this folder preserving the normal widget structure.
-Add normal localized resource files here.  Template/layour files reference the element you will use to render your React application. Make sure you update this.
+Add normal localized resource files here.  Template/layout files reference the element you will use to render your React application. Make sure you update this.
 
 
 #### Credits
