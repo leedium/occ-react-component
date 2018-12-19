@@ -5,8 +5,6 @@
  * source code package.
  */
 
-/* eslint react/prefer-stateless-function: 0, import/no-extraneous-dependencies: 0  */
-
 // @flow
 /**
  * @project occ-react-component
@@ -18,31 +16,46 @@
  * @description  Sample ReactApplication.. knock urself out from here...
  */
 
-import React, { Component } from "react";
+import React from "react";
 
 import css from "./styles/styles.css";
-
-console.log(css);
+import logo from "./images/logo.png";
+import { Button, RadiusButton, ButtonType } from "./modules/Button/Button";
 
 type Props = {
   occDependencies: {},
   model: {}
 }
 
-class App extends Component<Props> {
-  render() {
-    const { model, occDependencies } = this.props;
-    const { logger } = occDependencies;
-    logger.info("[occ-react-component]: Hello from OCC's Winston logger... :) ");
-    console.log(`[occ-react-component]:  widget model:`, model);
-    console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
-    return (
+const App = (props: Props) => {
+  // Including logs for example
+  const { model, occDependencies } = props;
+  const { logger } = occDependencies;
+  logger.info("[occ-react-component]: Hello from OCC's Winston logger... :) ");
+  console.log(`[occ-react-component]:  widget model:`, model);
+  console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
+
+  return (
+    <React.Fragment>
       <div className={css["occ-react-component"]}>
-        <div className={css.logo} />
-        <p>This is a React Application</p>
+        <h4>occ-react-component</h4>
+        <div className={css.example}>
+          <div><img className={css.logo} src={logo} alt="LEEDIUM LOGO"/></div>
+          <div className={css["oracle-logo"]}/>
+        </div>
+        <div className={css.example}>
+          <Button label="Default" {...props} />
+          <Button buttonType={ButtonType.primary} label="Primary Button" {...props} />
+          <Button buttonType={ButtonType.secondary} label="Secondary Button" {...props} />
+        </div>
+        <div>
+          <RadiusButton radius="50px" buttonType={ButtonType.primary} label="Radius Button"/>
+        </div>
       </div>
-    );
-  }
-}
+    </React.Fragment>
+
+  );
+
+};
 
 export default App;
