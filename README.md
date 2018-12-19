@@ -1,10 +1,28 @@
-# [occ-react-component](https://github.com/leedium/occ-react-component "React Component Starter for Oracle Commerce Cloud")
+# occ-react-component
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
+
+#### version
+1.6.2
+
+#### change log
+1.6.2
+- added examples for styled-components
+
+1.5.2
+  - added more webpack loader examples
+    - css-loader, style-loader, postcss, base64 helpers
+
+1.4.2
+  -  updated to react 16.6.3
+  -  Dependency optimizations
+  
 
 <img src="https://github.com/leedium/occ-react-component/blob/develop/example.png" width="60%" />
 
 #### React version:
 16.6.3
+
+Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow") 
 
 ### Included 
 - [React 16](https://reactjs.org/ "React")
@@ -12,16 +30,23 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 - [Babel 7](https://babeljs.io/ "Babel 7")
 - [eslint](https://eslint.org/ "Eslint")
 
-This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to develop [React 16](https://reactjs.org/ "React") JSX Components with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
+This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to create [React 16](https://reactjs.org/ "React") JSX Components 
+with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
 The ReactApplication is compiled to `dist/` preserving the normal folder structure for a widget.
 The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
 Of course this can all be configured in webpack.config.js
 
-### Example Webpack Plugins 
+### Example Webpack Plugins / Modules
+- [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
 - [style-loader](https://github.com/webpack-contrib/style-loader) - (injects styles in dom)
 - [css-loader](https://github.com/webpack-contrib/css-loader) (css-modules, css compilation)
 - [postcss-loader](https://github.com/postcss/postcss-loader) (css-processing)
+- [postcss-image-sizes](https://github.com/s0ber/postcss-image-sizes) (adds image sizes to the css class that references images)
 - [base64-inline-loader](https://github.com/monolithed/base64-inline-loader#readme) (converts image paths to base64 references)
+
+This example uses styled-components which helps to organize, encapsulate, and associate styling to the
+actual component.  This reduces load/reques of files, avoids class name collisions, improved
+maintenance   
 
 
 ### Dependencies
@@ -54,7 +79,7 @@ prod build
 npm run build:prod
 ```
 
-watcher
+watcher (watches for changes)
 ```
 npm run watch
 ```
@@ -66,8 +91,6 @@ npm run watch
 Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `componentConfig.js`
 These will be shimed and made available at runtime to your application.  
 Also update the react version.  This should be directly in line with the [occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global") version
-                                                                         
-
 
 #### app/js/index.jsx
 Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") widget entry file.  This is the react equivalent to the main OCC widget file

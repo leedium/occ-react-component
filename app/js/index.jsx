@@ -7,8 +7,6 @@
  * source code package.
  */
 
-/* eslint  import/no-extraneous-dependencies: 0 */
-
 /**
  * @project occ-react-component
  * @file index.jsx

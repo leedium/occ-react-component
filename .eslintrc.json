@@ -24,7 +24,9 @@
     "import/no-amd": 0,
     "import/no-unresolved": [2, { "amd": true }],
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "import/no-extraneous-dependencies":["error",{"peerDependencies": true}]
+//    "no-confusing-arrow": ["off"]
     //    "no-debugger": 0,
     //
     //    "no-useless-constructor": 0,
