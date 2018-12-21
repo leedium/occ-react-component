@@ -1,6 +1,9 @@
 # occ-react-component
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
+
+<img src="https://github.com/leedium/occ-react-component/blob/develop/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
+
 #### version
 1.7.2
 
@@ -19,9 +22,6 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 1.4.2
   -  updated to react 16.6.3
   -  Dependency optimizations
-
-
-<img src="https://github.com/leedium/occ-react-component/blob/develop/example.png" width="60%" />
 
 #### React version:
 16.6.3
@@ -93,7 +93,7 @@ your mappings as follows.
 Im my example I'm using a remote mapping to the webpack-dev-server.  The `*` wildcards will capture
 all requests to the widget js folder.  You can change this to be more specific.
 
-{add image}
+<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings.png?raw=true" alt="Charles proxy mappings" />
 
 Mappings
 
