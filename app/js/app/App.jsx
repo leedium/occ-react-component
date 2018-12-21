@@ -16,6 +16,8 @@
  * @description  Sample ReactApplication.. knock urself out from here...
  */
 
+import { hot } from 'react-hot-loader/root';
+
 import React from "react";
 
 import css from "./styles/styles.css";
@@ -34,11 +36,11 @@ const App = (props: Props) => {
   logger.info("[occ-react-component]: Hello from OCC's Winston logger... :) ");
   console.log(`[occ-react-component]:  widget model:`, model);
   console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
-
   return (
     <React.Fragment>
       <div className={css["occ-react-component"]}>
         <h4>occ-react-component</h4>
+        <h4>using react hot module reload</h4>
         <div className={css.example}>
           <div><img className={css.logo} src={logo} alt="LEEDIUM LOGO"/></div>
           <div className={css["oracle-logo"]}/>
@@ -53,9 +55,7 @@ const App = (props: Props) => {
         </div>
       </div>
     </React.Fragment>
-
   );
-
 };
 
-export default App;
+export default hot(App);

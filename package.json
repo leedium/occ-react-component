@@ -1,4 +1,6 @@
 {
+  "occHostPreview":"ccstore-z4ma.oracleoutsourcing.com",
+  "occHostStorefront":"ccstore-z4ma.oracleoutsourcing.com",
   "scripts": {
     "build": "babel jsx -d js",
     "build:dev": "webpack --mode=development",
@@ -6,7 +8,7 @@
     "watch": "webpack --watch --mode=development",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --mode=development",
     "test": "jest",
     "test:update": "jest -u",
     "test:coverage": "jest --coverage",
@@ -48,6 +50,7 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
     "flow-bin": "^0.81.0",
+    "http-proxy": "^1.17.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-image-sizes": "^0.1.0",
     "postcss-import": "^12.0.1",
@@ -57,7 +60,7 @@
     "prettier": "^1.14.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-hot-loader": "^4.3.10",
+    "react-hot-loader": "^4.6.3",
     "react-test-renderer": "^16.5.2",
     "style-loader": "^0.23.1",
     "sugarss": "^2.0.0",
@@ -70,7 +73,7 @@
     "webpack-obfuscator": "^0.18.0"
   },
   "name": "occ-react-component",
-  "version": "1.6.2",
+  "version": "1.7.2",
   "description": "Tool to help build react components for Oracle Commerce Cloud",
   "main": "inde.js",
   "repository": "git@github.com:leedium/occ-react-component.git",
