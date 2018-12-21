@@ -36,12 +36,11 @@ const App = (props: Props) => {
   logger.info("[occ-react-component]: Hello from OCC's Winston logger... :) ");
   console.log(`[occ-react-component]:  widget model:`, model);
   console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
-
   return (
     <React.Fragment>
       <div className={css["occ-react-component"]}>
-        <h4>I LOVE ORACLE</h4>
-        <h4>This is React with HMR!!!!</h4>
+        <h4>occ-react-component</h4>
+        <h4>using react hot module reload</h4>
         <div className={css.example}>
           <div><img className={css.logo} src={logo} alt="LEEDIUM LOGO"/></div>
           <div className={css["oracle-logo"]}/>
@@ -56,9 +55,7 @@ const App = (props: Props) => {
         </div>
       </div>
     </React.Fragment>
-
   );
-
 };
 
 export default hot(App);

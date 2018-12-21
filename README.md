@@ -2,39 +2,50 @@
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
 #### version
-1.6.2
+1.7.2
 
 #### change log
+1.7.2
+  - Added React Hot Module Reload
+  - updated babelrc, let webpact do import/export/amd transpiling
+
 1.6.2
-- added examples for styled-components
+  - added examples for styled-components
 
 1.5.2
   - added more webpack loader examples
-    - css-loader, style-loader, postcss, base64 helpers
+  - css-loader, style-loader, postcss, base64 helpers
 
 1.4.2
   -  updated to react 16.6.3
   -  Dependency optimizations
-  
+
 
 <img src="https://github.com/leedium/occ-react-component/blob/develop/example.png" width="60%" />
 
 #### React version:
 16.6.3
 
-Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow") 
+Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
 
-### Included 
+### Included
+- [React Hot Module Reloader](https://github.com/gaearon/react-hot-loader)
 - [React 16](https://reactjs.org/ "React")
 - [Webpack 4](https://webpack.js.org/ "Webpack")
 - [Babel 7](https://babeljs.io/ "Babel 7")
 - [eslint](https://eslint.org/ "Eslint")
 
-This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to create [React 16](https://reactjs.org/ "React") JSX Components 
+This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to create [React 16](https://reactjs.org/ "React") JSX Components
 with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
-The ReactApplication is compiled to `dist/` preserving the normal folder structure for a widget.
+The React Application is compiled to `dist/` preserving the normal folder structure for a widget.
 The component wraps the knockout.js view model and injects both the model and dependencies into each React component allowing developers access to best of both worlds, "old" and new.
 Of course this can all be configured in webpack.config.js
+
+Hot Module Reload(HRM) which will allow you to update the component in real-time without page refreshes
+works by way of proxy.  I use [Charles](https://www.charlesproxy.com/):
+Please see Proxy configuration for charles settings.
+
+
 
 ### Example Webpack Plugins / Modules
 - [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
@@ -46,7 +57,7 @@ Of course this can all be configured in webpack.config.js
 
 This example uses styled-components which helps to organize, encapsulate, and associate styling to the
 actual component.  This reduces load/reques of files, avoids class name collisions, improved
-maintenance   
+maintenance
 
 
 ### Dependencies
@@ -68,28 +79,44 @@ npm i
 The inject props include the widget model, and all your defined dependencies.
 
 
+### Development
+```
+$ npm run dev
+```
+After you install and create an instance in OCC, follow these instructions to
+utilize Hot Module Reload via proxy
+#### Proxy configuration
+I personally use Charles, but you should be able to use any web proxy that supports mapping files
+both locally and remotely. The webpack dev server is configured to run https on localhost:9000 so you will need to configure
+your mappings as follows.
+
+Im my example I'm using a remote mapping to the webpack-dev-server.  The `*` wildcards will capture
+all requests to the widget js folder.  You can change this to be more specific.
+
+{add image}
+
+Mappings
+
+| occ serverInstance request ( {env}.oracleoutsourcing.com)  | Proxy mapping  (localhost:9000)|
+| ------------- | ------------- |
+| \*{WIDGET_NAME}/js/\* | /file/widget/{WIDGET_NAME}/js/
+
+* Ideally you want all the `file/widget/{WIDGET_NAME}/js` OCC requests to map to `localhost:9000/file/widget/{WIDGET_NAME}/js`
+
 ### Build
 dev build
 ```
-npm run build:dev
+$ npm run build:dev
 ```
 
 prod build
 ```
-npm run build:prod
+$ npm run watch
 ```
-
-watcher (watches for changes)
-```
-npm run watch
-```
-
-## Development Process
-*Install the component in OCC and then use a proxy like [Charles](https://www.charlesproxy.com/) to map to your bundle(s) while the watcher is running so you can see changes immediately upon refresh.
 
 ## Configuration
 Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `componentConfig.js`
-These will be shimed and made available at runtime to your application.  
+These will be shimed and made available at runtime to your application.
 Also update the react version.  This should be directly in line with the [occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global") version
 
 #### app/js/index.jsx
