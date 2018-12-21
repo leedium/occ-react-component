@@ -19,6 +19,7 @@
  */
 
 
+// import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -35,6 +36,7 @@ define([
 ], function def (ko, $, pubsub, notifier, CCConstants, logger) {
 
   let App;
+
 
   return {
     onLoad (model) {

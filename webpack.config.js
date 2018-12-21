@@ -15,12 +15,10 @@ const config = {
   entry: {
     index: "./app/js/index.jsx"
   },
-  devtool:
-    process.env.NODE_ENV === "development" ? "cheap-eval-source-map" : false,
+  devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
   output: {
     path: path.resolve(
       __dirname,componentConfig.publicPath
-
     ),
     filename: "bundle.js",
     chunkFilename: "[name].js",
@@ -30,7 +28,12 @@ const config = {
   externals: componentConfig.dependencies,
   devServer: {
     hot: true,
-    publicPath: "/public/",
+    https: true,
+    inline: true,
+    port:9000,
+    contentBase:path.resolve(
+      __dirname,componentConfig.publicPath
+    ),
     historyApiFallback: true
   },
   resolve: {
@@ -42,7 +45,8 @@ const config = {
     chunks: false
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
   ],
   module: {
     rules: [
@@ -54,7 +58,7 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        loader: "babel-loader"
+        use: ['babel-loader','react-hot-loader/webpack']
       },
       {
         test: /\.(jpe?g|png|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
@@ -88,5 +92,4 @@ const config = {
     ]
   }
 };
-
 module.exports = config;

@@ -3,7 +3,7 @@ const COMPONENT_NAME = 'occReactComponent';
 
 exports.reactVersion = REACT_VERSION;
 module.exports = {
-  publicPath: `file/widget/${COMPONENT_NAME}/js`,
+  publicPath: `file/widget/${COMPONENT_NAME}/js/`,
   componentName: COMPONENT_NAME,
   dependencies: {
     knockout: "knockout",

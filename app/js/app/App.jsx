@@ -16,6 +16,8 @@
  * @description  Sample ReactApplication.. knock urself out from here...
  */
 
+import { hot } from 'react-hot-loader/root';
+
 import React from "react";
 
 import css from "./styles/styles.css";
@@ -38,7 +40,8 @@ const App = (props: Props) => {
   return (
     <React.Fragment>
       <div className={css["occ-react-component"]}>
-        <h4>occ-react-component</h4>
+        <h4>I LOVE ORACLE</h4>
+        <h4>This is React with HMR!!!!</h4>
         <div className={css.example}>
           <div><img className={css.logo} src={logo} alt="LEEDIUM LOGO"/></div>
           <div className={css["oracle-logo"]}/>
@@ -58,4 +61,4 @@ const App = (props: Props) => {
 
 };
 
-export default App;
+export default hot(App);
