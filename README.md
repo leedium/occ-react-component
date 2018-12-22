@@ -75,7 +75,7 @@ npm i
 ```
 
 ### Instructions
-/app/js/app/App.jsx is your Main react application file.  Use this as your staring point.
+`/app/js/app/App.jsx` is your Main react application file.  Use this as your staring point.
 The inject props include the widget model, and all your defined dependencies.
 
 
