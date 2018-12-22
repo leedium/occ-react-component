@@ -13,7 +13,7 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 
 1.7.2
   - Added React Hot Module Reload
-  - updated babelrc, let webpact do import/export/amd transpiling
+  - updated babelrc, let webpack do import/export/amd transpiling
 
 1.6.2
   - added examples for styled-components
