@@ -1,6 +1,4 @@
 {
-  "occHostPreview":"ccstore-z4ma.oracleoutsourcing.com",
-  "occHostStorefront":"ccstore-z4ma.oracleoutsourcing.com",
   "scripts": {
     "build": "babel jsx -d js",
     "build:dev": "webpack --mode=development",
