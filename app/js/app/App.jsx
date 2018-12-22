@@ -19,6 +19,7 @@
 
 
 import React from "react";
+import { hot } from 'react-hot-loader/root';
 
 import css from "./styles/styles.css";
 import logo from "./images/logo.png";
@@ -58,4 +59,4 @@ const App = (props: Props) => {
   );
 };
 
-export default App;
+export default hot(App);
