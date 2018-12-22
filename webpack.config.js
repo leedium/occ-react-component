@@ -30,6 +30,7 @@ const config = {
     hot: true,
     https: true,
     inline: true,
+    disableHostCheck: true,
     port:9000,
     contentBase:path.resolve(
       __dirname,componentConfig.publicPath
