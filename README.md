@@ -5,9 +5,12 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 <img src="https://github.com/leedium/occ-react-component/blob/develop/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
 
 #### version
-1.7.2
+1.7.3
 
 #### change log
+1.7.3
+  - fix origin host bug on some osx systems 
+
 1.7.2
   - Added React Hot Module Reload
   - updated babelrc, let webpact do import/export/amd transpiling
@@ -23,8 +26,9 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
   -  updated to react 16.6.3
   -  Dependency optimizations
 
-#### React version:
-16.6.3
+#### Tested versions 
+Node.js version: 10.13.0
+React version: 16.6.3
 
 Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
 
