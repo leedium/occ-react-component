@@ -71,7 +71,7 @@
     "webpack-obfuscator": "^0.18.0"
   },
   "name": "occ-react-component",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "Tool to help build react components for Oracle Commerce Cloud",
   "main": "inde.js",
   "repository": "git@github.com:leedium/occ-react-component.git",

@@ -11,7 +11,6 @@ const componentConfig = require("./componentConfig");
 
 
 const config = {
-  // mode: 'development',
   entry: {
     index: "./app/js/index.jsx"
   },
