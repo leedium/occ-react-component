@@ -18,8 +18,7 @@
  *              React component props
  */
 
-
-// import { hot } from 'react-hot-loader/root';
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -45,10 +44,10 @@ define([
       };
 
       // Mode and dependencies get injected into your App here.
-      App = occProvider(ReactApplication, {
+      App = hot(occProvider(ReactApplication, {
         model,
         occDependencies
-      })
+      }))
     },
     onRender() {
       ReactDOM.render(<App />, document.getElementById('occReactComponent'));

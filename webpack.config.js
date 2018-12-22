@@ -11,7 +11,6 @@ const componentConfig = require("./componentConfig");
 
 
 const config = {
-  // mode: 'development',
   entry: {
     index: "./app/js/index.jsx"
   },
@@ -30,6 +29,7 @@ const config = {
     hot: true,
     https: true,
     inline: true,
+    disableHostCheck: true,
     port:9000,
     contentBase:path.resolve(
       __dirname,componentConfig.publicPath
