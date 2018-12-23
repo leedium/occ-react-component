@@ -25,19 +25,27 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 1.4.2
   -  updated to react 16.6.3
   -  Dependency optimizations
+  
+#### Status
+-  OCC extension deployments scripts 
+-  React.lazy, React.Suspense example (bundle split, dynamic import)
+- ~hot module reload~
+- ~styled components example~
+- ~base 64 img for css and url-loader example~
+- ~update to react 16.6.3~
+- ~dependency cleanup~
 
-#### Tested versions 
-Node.js version: 10.13.0
+#### Tested versions
+Node.js version: 10.13.0  
 React version: 16.6.3
-
-Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
 
 ### Included
 - [React Hot Module Reloader](https://github.com/gaearon/react-hot-loader)
 - [React 16](https://reactjs.org/ "React")
 - [Webpack 4](https://webpack.js.org/ "Webpack")
 - [Babel 7](https://babeljs.io/ "Babel 7")
-- [eslint](https://eslint.org/ "Eslint")
+- [eslint](https://eslint.org/ "Eslint")   
+Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
 
 This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to create [React 16](https://reactjs.org/ "React") JSX Components
 with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
