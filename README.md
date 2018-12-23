@@ -49,8 +49,6 @@ Hot Module Reload(HRM) which will allow you to update the component in real-time
 works by way of proxy.  I use [Charles](https://www.charlesproxy.com/):
 Please see Proxy configuration for charles settings.
 
-
-
 ### Example Webpack Plugins / Modules
 - [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
 - [style-loader](https://github.com/webpack-contrib/style-loader) - (injects styles in dom)
@@ -98,6 +96,8 @@ Im my example I'm using a remote mapping to the webpack-dev-server.  The `*` wil
 all requests to the widget js folder.  You can change this to be more specific.
 
 <img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings.png?raw=true" alt="Charles proxy mappings" />
+
+### \* Important:for Charles, You need to enable SSL Proxying for both your OCC instance and your WebpackDevServer(localhost:9000)
 
 Mappings
 
