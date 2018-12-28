@@ -94,10 +94,15 @@ I personally use Charles, but you should be able to use any web proxy that suppo
 both locally and remotely. The webpack dev server is configured to run https on localhost:9000 so you will need to configure
 your mappings as follows.
 
-Im my example I'm using a remote mapping to the webpack-dev-server.  The `*` wildcards will capture
-all requests to the widget js folder.  You can change this to be more specific.
+Im my example I'm using a remote mapping to the webpack-dev-server.  
 
-<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings.png?raw=true" alt="Charles proxy mappings" />
+The file specific mapping with cover the minified file name and point it to the non minified file name "".
+If your OCC mode has debug compression off then the 2nd mapping will pick up the file naturally. 
+
+The `*` wildcards will capture all requests to the widget js folder.  You can change this to be more specific.
+
+<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings-file.png?raw=true" alt="Charles proxy mappings 1" />
+<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings.png?raw=true" alt="Charles proxy mappings 2" />
 
 Mappings
 
