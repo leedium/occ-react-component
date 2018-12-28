@@ -63,6 +63,8 @@ This example uses styled-components which helps to organize, encapsulate, and as
 actual component.  This reduces load/reques of files, avoids class name collisions, improved
 maintenance
 
+Please be aware that this example is 500KB because it includes base64 image data.
+
 
 ### Dependencies
 Install the OCC React global application widget.
