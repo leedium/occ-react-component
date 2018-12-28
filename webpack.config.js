@@ -19,7 +19,7 @@ const config = {
     path: path.resolve(
       __dirname,componentConfig.publicPath
     ),
-    filename: "bundle.min.js",
+    filename: "bundle.js",
     chunkFilename: "[name].js",
     publicPath: componentConfig.publicPath,
     libraryTarget: "amd"
