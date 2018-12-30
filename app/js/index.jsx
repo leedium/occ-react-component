@@ -18,6 +18,7 @@
  *              React component props
  */
 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -30,16 +31,17 @@ define([
   "pubsub",
   "notifier",
   "ccConstants",
-  "ccLogger"
-], function def (ko, $, pubsub, notifier, CCConstants, logger) {
+  "ccRestClient",
+  "ccLogger",
+  "pageLayout/product"
+], function def (ko, $, pubsub, notifier, ccConstants, ccRestClient, logger, Product) {
 
   let App;
-
 
   return {
     onLoad (model) {
       const occDependencies = {
-        ko, $, pubsub, notifier, CCConstants, logger
+        ko, $, pubsub, notifier, ccConstants, ccRestClient, logger, Product
       };
 
       // Mode and dependencies get injected into your App here.

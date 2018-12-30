@@ -6,6 +6,7 @@
  */
 
 // @flow
+
 /**
  * @project occ-react-component
  * @file App.jsx
@@ -18,12 +19,11 @@
 
 
 
-import React from "react";
+import React, {Fragment} from "react";
 import { hot } from 'react-hot-loader/root';
 
-import css from "./styles/styles.css";
-import logo from "./images/logo.png";
-import { Button, RadiusButton, ButtonType } from "./modules/Button/Button";
+import Product from './modules/Product/Product';
+import ProductList from './modules/ProductList/ProductList';
 
 type Props = {
   occDependencies: {},
@@ -31,31 +31,16 @@ type Props = {
 }
 
 const App = (props: Props) => {
-  // Including logs for example
   const { model, occDependencies } = props;
-  const { logger } = occDependencies;
-  logger.info("[occ-react-component]: Hello from OCC's Winston logger... :) ");
   console.log(`[occ-react-component]:  widget model:`, model);
   console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
   return (
-    <React.Fragment>
-      <div className={css["occ-react-component"]}>
-        <h4>occ-react-component</h4>
-        <h4>using react hot module reload</h4>
-        <div className={css.example}>
-          <div><img className={css.logo} src={logo} alt="LEEDIUM LOGO"/></div>
-          <div className={css["oracle-logo"]}/>
-        </div>
-        <div className={css.example}>
-          <Button label="Default" {...props} />
-          <Button buttonType={ButtonType.primary} label="Primary Button" {...props} />
-          <Button buttonType={ButtonType.secondary} label="Secondary Button" {...props} />
-        </div>
-        <div>
-          <RadiusButton radius="50px" buttonType={ButtonType.primary} label="Radius Button"/>
-        </div>
-      </div>
-    </React.Fragment>
+        <Fragment>
+          <ProductList title="OCC React Component Example">
+              <Product productId="ni115o003" {...props} />
+              <Product productId="mars_snickers" {...props} />
+          </ProductList>
+        </Fragment>
   );
 };
 

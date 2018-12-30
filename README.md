@@ -9,7 +9,11 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 
 #### change log
 1.7.3
-  - fix origin host bug on some osx systems 
+  - updated working example to include ccRest Client and Product Data manipulation
+  - moved styled-components to peer dependency (you will need to add this in manually for development build)
+  - removed all css file includes for [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
+  - fix origin host bug on some osx systems
+
 
 1.7.2
   - Added React Hot Module Reload
@@ -25,6 +29,11 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 1.4.2
   -  updated to react 16.6.3
   -  Dependency optimizations
+
+
+#### Tested versions
+Node.js version: 10.13.0
+=======
   
 #### Status
 -  OCC extension deployments scripts 
@@ -67,9 +76,9 @@ Please see Proxy configuration for charles settings.
 
 This example uses styled-components which helps to organize, encapsulate, and associate styling to the
 actual component.  This reduces load/reques of files, avoids class name collisions, improved
-maintenance
+maintenance.
 
-Please be aware that this example is 500KB because it includes base64 image data.
+Please be aware to externalize styled-components and not include the dependency in you individual application
 
 
 ### Dependencies
@@ -102,10 +111,10 @@ I personally use Charles, but you should be able to use any web proxy that suppo
 both locally and remotely. The webpack dev server is configured to run https on localhost:9000 so you will need to configure
 your mappings as follows.
 
-Im my example I'm using a remote mapping to the webpack-dev-server.  
+Im my example I'm using a remote mapping to the webpack-dev-server.
 
 The file specific mapping with cover the minified file name and point it to the non minified file name "".
-If your OCC mode has debug compression off then the 2nd mapping will pick up the file naturally. 
+If your OCC mode has debug compression off then the 2nd mapping will pick up the file naturally.
 
 The `*` wildcards will capture all requests to the widget js folder.  You can change this to be more specific.
 
@@ -123,18 +132,18 @@ Mappings
 * Ideally you want all the `file/widget/{WIDGET_NAME}/js` OCC requests to map to `localhost:9000/file/widget/{WIDGET_NAME}/js`
 
 ### Build
-dev build
+dev build - with HMR and styled-components
 ```
 $ npm run build:dev
 ```
 
-prod build
+prod build - no HMR or styled-components(make this an external package)
 ```
 $ npm run watch
 ```
 
 ## Configuration
-Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `componentConfig.js`
+Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `externalDependencies.js`
 These will be shimed and made available at runtime to your application.
 Also update the react version.  This should be directly in line with the [occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global") version
 
