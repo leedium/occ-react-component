@@ -39,8 +39,7 @@ const StyledProductList = styled.div`
 
 const ProductList = ({ children, title }: Props) =>
   <StyledProductList>
-    {/*<h2>{title}</h2>*/}
-    <h1>{"Example Product List"}</h1>
+    <h2>{title}</h2>
     <div className="list-container">{children}</div>
   </StyledProductList>;
 

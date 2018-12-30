@@ -7,6 +7,8 @@
 
 /* eslint react/prefer-stateless-function: 0, import/no-extraneous-dependencies: 0  */
 
+// @flow
+
 /**
  * @project occ-react-component
  * @file OccProvider.jsx
@@ -21,8 +23,12 @@
 
 import React, { Component } from "react";
 
+type Props = {
+  children: []
+}
+
 function OccProvider(WrappedComponent, occData) {
-  return class extends Component {
+  return class extends Component<Props> {
     render() {
       const { children } = this.props;
       return (

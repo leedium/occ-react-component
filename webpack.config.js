@@ -1,50 +1,62 @@
 const path = require("path");
 const webpack = require("webpack");
-const postcssImageSizes = require('postcss-image-sizes');
-const postcssNested = require('postcss-nested');
-const postcssImport = require('postcss-import');
-const postcssPresetEnv = require('postcss-preset-env');
-const cssnano = require('cssnano');
+const {BundleAnalyzerPlugin }= require('webpack-bundle-analyzer');
+const postcssImageSizes = require("postcss-image-sizes");
+const postcssNested = require("postcss-nested");
+const postcssImport = require("postcss-import");
+const postcssPresetEnv = require("postcss-preset-env");
+const cssnano = require("cssnano");
 
-const componentConfig = require("./componentConfig");
-
+const componentConfig = require("./externalDependencies");
 
 
 const config = {
   entry: {
-    index: "./app/js/index.jsx"
+    index: "./app/js/index.jsx",
   },
-  devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
+  devtool: process.env.WEBPACK_DEVTOOL || "eval-source-map",
   output: {
     path: path.resolve(
-      __dirname,componentConfig.publicPath
+      __dirname, componentConfig.publicPath
     ),
     filename: "bundle.js",
-    chunkFilename: "[name].js",
+    chunkFilename: "[name].bundle.js",
     publicPath: componentConfig.publicPath,
     libraryTarget: "amd"
   },
+  // optimization: {
+  //   splitChunks:{
+  //     cacheGroups: {
+  //       vendors:{
+  //         test: /[\\/]node_modules[\\/]/,
+  //         chunks: "initial",
+  //         priority: 1
+  //       }
+  //     }
+  //   }
+  // },
   externals: componentConfig.dependencies,
   devServer: {
     hot: true,
     https: true,
     inline: true,
     disableHostCheck: true,
-    port:9000,
-    contentBase:path.resolve(
-      __dirname,componentConfig.publicPath
+    port: 9000,
+    contentBase: path.resolve(
+      __dirname, componentConfig.publicPath
     ),
     historyApiFallback: true
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: [".js", ".jsx", ".json"]
   },
   stats: {
     colors: true,
     reasons: true,
-    chunks: false
+    chunks: true
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()
   ],
@@ -58,11 +70,11 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        use: ['babel-loader','react-hot-loader/webpack']
+        use: ["babel-loader", "react-hot-loader/webpack"]
       },
       {
         test: /\.(jpe?g|png|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-        use: 'base64-inline-loader?name=[name].[ext]'
+        use: "base64-inline-loader?name=[name].[ext]"
       },
       {
         test: /\.css$/,
@@ -70,7 +82,7 @@ const config = {
           "style-loader",
           {
             loader: "css-loader",
-            options:{
+            options: {
               modules: true,
               importLoaders: 1
             }
@@ -79,7 +91,7 @@ const config = {
             loader: "postcss-loader",
             options: {
               plugins: (loader) => [
-                postcssImageSizes({assetsPath: 'app/js/app/images'}),
+                postcssImageSizes({ assetsPath: "app/js/app/images" }),
                 postcssNested,
                 postcssImport({ root: loader.resourcePath }),
                 postcssPresetEnv(),

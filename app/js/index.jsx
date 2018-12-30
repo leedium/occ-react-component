@@ -18,6 +18,7 @@
  *              React component props
  */
 
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -36,7 +37,6 @@ define([
 ], function def (ko, $, pubsub, notifier, ccConstants, ccRestClient, logger, Product) {
 
   let App;
-
 
   return {
     onLoad (model) {

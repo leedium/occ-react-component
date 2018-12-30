@@ -10,6 +10,7 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 #### change log
 1.7.3
   - updated working example to include ccRest Client and Product Data manipulation
+  - moved styled-components to peer dependency (you will need to add this in manually for development build)
   - removed all css file includes for [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
   - fix origin host bug on some osx systems
 
@@ -64,9 +65,9 @@ Please see Proxy configuration for charles settings.
 
 This example uses styled-components which helps to organize, encapsulate, and associate styling to the
 actual component.  This reduces load/reques of files, avoids class name collisions, improved
-maintenance
+maintenance.
 
-Please be aware that this example is 500KB because it includes base64 image data.
+Please be aware to externalize styled-components and not include the dependency in you individual application
 
 
 ### Dependencies
@@ -118,18 +119,18 @@ Mappings
 * Ideally you want all the `file/widget/{WIDGET_NAME}/js` OCC requests to map to `localhost:9000/file/widget/{WIDGET_NAME}/js`
 
 ### Build
-dev build
+dev build - with HMR and styled-components
 ```
 $ npm run build:dev
 ```
 
-prod build
+prod build - no HMR or styled-components(make this an external package)
 ```
 $ npm run watch
 ```
 
 ## Configuration
-Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `componentConfig.js`
+Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `externalDependencies.js`
 These will be shimed and made available at runtime to your application.
 Also update the react version.  This should be directly in line with the [occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global") version
 

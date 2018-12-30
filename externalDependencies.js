@@ -1,11 +1,16 @@
-const REACT_VERSION = '16.6.3';
-const COMPONENT_NAME = 'occReactComponent';
+const REACT_VERSION = "16.6.3";
+const COMPONENT_NAME = "occReactComponent";
 
 exports.reactVersion = REACT_VERSION;
 module.exports = {
   publicPath: `file/widget/${COMPONENT_NAME}/js/`,
   componentName: COMPONENT_NAME,
   dependencies: {
+    // "styled-components": {
+    //   commonjs: "styled-components",
+    //   commonjs2: "styled-components",
+    //   amd: "styled-components"
+    // },
     knockout: "knockout",
     jquery: "jquery",
     pubsub: "pubsub",

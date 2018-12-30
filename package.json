@@ -3,7 +3,7 @@
     "build": "babel jsx -d js",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production",
-    "watch": "webpack --watch --mode=development",
+    "watch": "webpack --watch",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "dev": "webpack-dev-server --mode=development",
@@ -12,10 +12,7 @@
     "test:coverage": "jest --coverage",
     "flow": "flow"
   },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "styled-components": "^4.1.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
@@ -62,6 +59,7 @@
     "react-hot-loader": "^4.6.3",
     "react-test-renderer": "^16.5.2",
     "style-loader": "^0.23.1",
+    "styled-components": "^4.1.3",
     "sugarss": "^2.0.0",
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",
