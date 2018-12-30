@@ -18,7 +18,7 @@ module.exports = {
     ccNumber: "ccNumber",
     currencyHelper: "currencyHelper",
     numberFormatHelper: "numberFormatHelper",
-    "pageLayout/product": "Product",
+    "pageLayout/product": "pageLayout/product",
     "ojs/ojcore": "ojs/ojcore",
     "ojs/ojvalidation": "ojs/ojvalidation",
     react: `https://unpkg.com/react@${REACT_VERSION}/umd/react.production.min`,
