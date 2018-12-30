@@ -1,11 +1,16 @@
-const REACT_VERSION = '16.6.3';
-const COMPONENT_NAME = 'occReactComponent';
+const REACT_VERSION = "16.6.3";
+const COMPONENT_NAME = "occReactComponent";
 
 exports.reactVersion = REACT_VERSION;
 module.exports = {
   publicPath: `file/widget/${COMPONENT_NAME}/js/`,
   componentName: COMPONENT_NAME,
   dependencies: {
+    // "styled-components": {
+    //   commonjs: "styled-components",
+    //   commonjs2: "styled-components",
+    //   amd: "styled-components"
+    // },
     knockout: "knockout",
     jquery: "jquery",
     pubsub: "pubsub",
@@ -18,7 +23,7 @@ module.exports = {
     ccNumber: "ccNumber",
     currencyHelper: "currencyHelper",
     numberFormatHelper: "numberFormatHelper",
-    "pageLayout/product": "Product",
+    "pageLayout/product": "pageLayout/product",
     "ojs/ojcore": "ojs/ojcore",
     "ojs/ojvalidation": "ojs/ojvalidation",
     react: `https://unpkg.com/react@${REACT_VERSION}/umd/react.production.min`,

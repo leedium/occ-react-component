@@ -25,7 +25,14 @@
     "import/no-unresolved": [2, { "amd": true }],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "import/no-extraneous-dependencies":["error",{"peerDependencies": true}]
+    "import/no-extraneous-dependencies":["error",{"peerDependencies": true}],
+
+
+    "spaced-comment": 0,
+    "no-unused-vars": 0,
+    "no-undef": 0,
+    "prefer-const": 0,
+    "react/jsx-curly-brace-presence": 0
 //    "no-confusing-arrow": ["off"]
     //    "no-debugger": 0,
     //
