@@ -17,7 +17,7 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 
 1.7.2
   - Added React Hot Module Reload
-  - updated babelrc, let webpact do import/export/amd transpiling
+  - updated babelrc, let webpack do import/export/amd transpiling
 
 1.6.2
   - added examples for styled-components
@@ -30,18 +30,31 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
   -  updated to react 16.6.3
   -  Dependency optimizations
 
+
 #### Tested versions
 Node.js version: 10.13.0
-React version: 16.6.3
+=======
+  
+#### Status
+-  OCC extension deployments scripts 
+-  React.lazy, React.Suspense example (bundle split, dynamic import)
+- ~hot module reload~
+- ~styled components example~
+- ~base 64 img for css and url-loader example~
+- ~update to react 16.6.3~
+- ~dependency cleanup~
 
-Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
+#### Tested versions
+Node.js version: 10.13.0  
+React version: 16.6.3
 
 ### Included
 - [React Hot Module Reloader](https://github.com/gaearon/react-hot-loader)
 - [React 16](https://reactjs.org/ "React")
 - [Webpack 4](https://webpack.js.org/ "Webpack")
 - [Babel 7](https://babeljs.io/ "Babel 7")
-- [eslint](https://eslint.org/ "Eslint")
+- [eslint](https://eslint.org/ "Eslint")   
+Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
 
 This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to create [React 16](https://reactjs.org/ "React") JSX Components
 with real time compilation to [Require.js AMD OCC modules](https://docs.oracle.com/cd/E97801_01/Cloud.18C/WidgetDev/html/index.html "Developing Widgets").
@@ -52,8 +65,6 @@ Of course this can all be configured in webpack.config.js
 Hot Module Reload(HRM) which will allow you to update the component in real-time without page refreshes
 works by way of proxy.  I use [Charles](https://www.charlesproxy.com/):
 Please see Proxy configuration for charles settings.
-
-
 
 ### Example Webpack Plugins / Modules
 - [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
@@ -109,6 +120,8 @@ The `*` wildcards will capture all requests to the widget js folder.  You can ch
 
 <img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings-file.png?raw=true" alt="Charles proxy mappings 1" />
 <img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings.png?raw=true" alt="Charles proxy mappings 2" />
+
+### \* Important:for Charles, You need to enable SSL Proxying for both your OCC instance and your WebpackDevServer(localhost:9000)
 
 Mappings
 
