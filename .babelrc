@@ -5,7 +5,7 @@
       "@babel/preset-env",
       {
         "loose": true,
-        "modules": "false",
+        "modules": false,
         "targets": {
           "browsers": ["last 2 versions", "safari >= 7"]
         }

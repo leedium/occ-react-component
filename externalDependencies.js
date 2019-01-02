@@ -26,9 +26,11 @@ module.exports = {
     "pageLayout/product": "pageLayout/product",
     "ojs/ojcore": "ojs/ojcore",
     "ojs/ojvalidation": "ojs/ojvalidation",
-    react: `https://unpkg.com/react@${REACT_VERSION}/umd/react.production.min`,
-    "react-dom":
-      `https://unpkg.com/react-dom@${REACT_VERSION}/umd/react-dom.production.min`,
-    redux: "https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.min"
+    // "react":"react",
+    // "react-dom":"react-dom"
+    // react: `https://unpkg.com/react@${REACT_VERSION}/umd/react.production.min`,
+    // "react-dom":
+    //   `https://unpkg.com/react-dom@${REACT_VERSION}/umd/react-dom.production.min`,
+    // redux: "https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.min"
   }
 };

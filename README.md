@@ -5,9 +5,12 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 <img src="https://github.com/leedium/occ-react-component/blob/develop/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
 
 #### version
-1.7.3
+1.8.3
 
 #### change log
+1.8.3
+  - Udated to use Dynamic Linked Library (DLL) which are shared webpack bundles across applications
+
 1.7.3
   - updated working example to include ccRest Client and Product Data manipulation
   - moved styled-components to peer dependency (you will need to add this in manually for development build)
@@ -34,9 +37,9 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 #### Tested versions
 Node.js version: 10.13.0
 =======
-  
+
 #### Status
--  OCC extension deployments scripts 
+-  OCC extension deployments scripts
 -  React.lazy, React.Suspense example (bundle split, dynamic import)
 - ~hot module reload~
 - ~styled components example~
@@ -45,7 +48,7 @@ Node.js version: 10.13.0
 - ~dependency cleanup~
 
 #### Tested versions
-Node.js version: 10.13.0  
+Node.js version: 10.13.0
 React version: 16.6.3
 
 ### Included
@@ -53,7 +56,7 @@ React version: 16.6.3
 - [React 16](https://reactjs.org/ "React")
 - [Webpack 4](https://webpack.js.org/ "Webpack")
 - [Babel 7](https://babeljs.io/ "Babel 7")
-- [eslint](https://eslint.org/ "Eslint")   
+- [eslint](https://eslint.org/ "Eslint")
 Uses React [flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
 
 This package will allow [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") developers to create [React 16](https://reactjs.org/ "React") JSX Components

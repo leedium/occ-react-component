@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const {BundleAnalyzerPlugin }= require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const postcssImageSizes = require("postcss-image-sizes");
 const postcssNested = require("postcss-nested");
 const postcssImport = require("postcss-import");
@@ -12,7 +12,7 @@ const componentConfig = require("./externalDependencies");
 
 const config = {
   entry: {
-    index: "./app/js/index.jsx",
+    index: "./app/js/index.jsx"
   },
   devtool: process.env.WEBPACK_DEVTOOL || "eval-source-map",
   output: {
@@ -57,6 +57,13 @@ const config = {
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require("./sharedBundles.dll.js.json"),
+      name: "/file/globals/sharedBundles.dll.js",
+      sourceType: "amd"
+    }),
+
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()
   ],
