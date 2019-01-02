@@ -8,6 +8,7 @@ const postcssPresetEnv = require("postcss-preset-env");
 const cssnano = require("cssnano");
 
 const componentConfig = require("./externalDependencies");
+const dllManifest = require("./dll/sharedBundles.dll.js.json");
 
 
 const config = {
@@ -24,17 +25,6 @@ const config = {
     publicPath: componentConfig.publicPath,
     libraryTarget: "amd"
   },
-  // optimization: {
-  //   splitChunks:{
-  //     cacheGroups: {
-  //       vendors:{
-  //         test: /[\\/]node_modules[\\/]/,
-  //         chunks: "initial",
-  //         priority: 1
-  //       }
-  //     }
-  //   }
-  // },
   externals: componentConfig.dependencies,
   devServer: {
     hot: true,
@@ -59,8 +49,8 @@ const config = {
     // new BundleAnalyzerPlugin(),
     new webpack.DllReferencePlugin({
       context: __dirname,
-      manifest: require("./sharedBundles.dll.js.json"),
-      name: "/file/globals/sharedBundles.dll.js",
+      manifest: dllManifest,
+      name: "/file/globals/z4ma.globals.min.js",
       sourceType: "amd"
     }),
 
