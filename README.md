@@ -86,7 +86,7 @@ Please be aware to externalize styled-components and not include the dependency 
 
 ### Dependencies
 Install the OCC React global application widget.
-[occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global")
+[occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 
 There are no production level dependencies for React out of the box as they are included in the global component.
 Feel free to add more to the global and your component application.
@@ -96,6 +96,19 @@ Feel free to add more to the global and your component application.
 ### Installation
 ```
 npm i
+```
+
+### Configuration
+
+In your /webpack.config.js update the DLLReferencePlugin manifest property with the path
+to the manifest file, and the name of the global vendor bundle you just uploaded 
+```$xslt
+new webpack.DllReferencePlugin({
+        context: __dirname,
+        manifest: require({DLL_MANIFEST_FILE}}),
+        name: "/file/globals/{OCC_GLOBAL_FILE_NAME}",
+        sourceType: "amd"
+      }),
 ```
 
 ### Instructions
@@ -148,7 +161,7 @@ $ npm run watch
 ## Configuration
 Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `externalDependencies.js`
 These will be shimed and made available at runtime to your application.
-Also update the react version.  This should be directly in line with the [occ-react-global](https://github.com/leedium/occ-react-global "occ-react-global") version
+Also update the react version.  This should be directly in line with the [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") version
 
 #### app/js/index.jsx
 Main [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") widget entry file.  This is the react equivalent to the main OCC widget file

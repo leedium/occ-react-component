@@ -73,9 +73,9 @@
     "styled-components": "^4.1.3"
   },
   "name": "occ-react-component",
-  "version": "1.7.3",
+  "version": "1.8.3",
   "description": "Tool to help build react components for Oracle Commerce Cloud",
-  "main": "inde.js",
+  "main": "app/index.js",
   "repository": "git@github.com:leedium/occ-react-component.git",
   "author": "David Lee <david@leedium.com>",
   "license": "GNU"

@@ -20,38 +20,30 @@
 
 
 import React, {Component, Fragment} from "react";
-import styled from 'styled-components';
 import { hot } from 'react-hot-loader/root';
 
 import Product from './modules/Product/Product';
 import ProductList from './modules/ProductList/ProductList';
-
-
 
 type Props = {
   occDependencies: {},
   model: {}
 }
 
-const Test =styled.div`
-  color:red;
-`
-
 class App extends Component<Props> {
-  componentDidUpdate (prevProps: Readonly<P>, prevState: Readonly<S>, snapshot: SS): void {
-    console.log(prevProps, prevState, snapshot)
-  }
-
   render(){
     const { model, occDependencies } = this.props;
     console.log(`[occ-react-component]:  widget model:`, model);
     console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
     return (
-      <Test>Hello</Test>
-
+      <Fragment>
+        <ProductList title="OCC React Component Example">
+          <Product key="ni115o003" productId="ni115o003" {...this.props} />
+          <Product key="mars_snickers" productId="mars_snickers" {...this.props} />
+        </ProductList>
+      </Fragment>
     );
   }
-};
+}
 
-export default hot(App);
-// export default App;
+export default process.env === 'development' ? hot(App) : App;

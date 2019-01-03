@@ -49,14 +49,15 @@ module.exports = (env, argv) => {
     },
     stats: {
       colors: true,
-      reasons: true,
+      reasons: false,
       chunks: true
     },
     optimization:{
       minimize: false
     },
     plugins: [
-      new BundleAnalyzerPlugin(),
+
+      // new BundleAnalyzerPlugin(),
       new webpack.DllReferencePlugin({
         context: __dirname,
         manifest: dllManifest,
@@ -77,36 +78,36 @@ module.exports = (env, argv) => {
         {
           test: /\.jsx?$/,
           use: ["babel-loader"]
+        },
+        {
+          test: /\.(jpe?g|png|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+          use: "base64-inline-loader?name=[name].[ext]"
+        },
+        {
+          test: /\.css$/,
+          use: [
+            "style-loader",
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                importLoaders: 1
+              }
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: (loader) => [
+                  postcssImageSizes({ assetsPath: "app/js/app/images" }),
+                  postcssNested,
+                  postcssImport({ root: loader.resourcePath }),
+                  postcssPresetEnv(),
+                  cssnano()
+                ]
+              }
+            }
+          ]
         }
-        // {
-        //   test: /\.(jpe?g|png|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-        //   use: "base64-inline-loader?name=[name].[ext]"
-        // },
-        // {
-        //   test: /\.css$/,
-        //   use: [
-        //     "style-loader",
-        //     {
-        //       loader: "css-loader",
-        //       options: {
-        //         modules: true,
-        //         importLoaders: 1
-        //       }
-        //     },
-        //     {
-        //       loader: "postcss-loader",
-        //       options: {
-        //         plugins: (loader) => [
-        //           postcssImageSizes({ assetsPath: "app/js/app/images" }),
-        //           postcssNested,
-        //           postcssImport({ root: loader.resourcePath }),
-        //           postcssPresetEnv(),
-        //           cssnano()
-        //         ]
-        //       }
-        //     }
-        //   ]
-        // }
       ]
     }
   };
