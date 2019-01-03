@@ -18,15 +18,16 @@
  */
 
 
-import React from "react";
+import React, {PureComponent} from "react";
 import styled from "styled-components";
 
 type Props = {
   itemData: {},
-  handleClick: Function
+  handleClick: Function,
+  key: string
 }
 
-const StyledSkuThumb = styled.button`
+export const StyledSkuThumb = styled.button`
 
   div,
   img {
@@ -39,9 +40,14 @@ const StyledSkuThumb = styled.button`
   
 `;
 
-const SkuThumb = ({ itemData, handleClick }: Props) => <StyledSkuThumb onClick={() => handleClick(itemData)}>
-  <img src={itemData.primaryThumbImageURL || '/ccstore/v1/images/?source=/img/no-image.jpg&height=100&width=100' } alt={`${itemData.displayName} - ${itemData.repositoryId}`}/>
-  <p>{itemData.listPrice}</p>
-</StyledSkuThumb>;
+class SkuThumb extends PureComponent<Props>{
+  render(){
+    const { itemData, handleClick, key } =this.props;
+    return (<StyledSkuThumb type="button" key={key} onClick={() => handleClick(itemData)}>
+      <img src={itemData.primaryThumbImageURL || '/ccstore/v1/images/?source=/img/no-image.jpg&height=100&width=100' } alt={`${itemData.displayName} - ${itemData.repositoryId}`}/>
+      <p>{itemData.listPrice}</p>
+    </StyledSkuThumb>);
+  }
+}
 
 export default SkuThumb;

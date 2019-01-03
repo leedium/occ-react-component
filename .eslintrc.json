@@ -32,8 +32,9 @@
     "no-unused-vars": 0,
     "no-undef": 0,
     "prefer-const": 0,
-    "react/jsx-curly-brace-presence": 0
-//    "no-confusing-arrow": ["off"]
+    "react/jsx-curly-brace-presence": 0,
+    "react/prefer-stateless-function": 0,
+    "no-confusing-arrow": ["off"]
     //    "no-debugger": 0,
     //
     //    "no-useless-constructor": 0,

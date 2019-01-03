@@ -18,7 +18,7 @@
  */
 
 
-import React from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -37,10 +37,15 @@ const StyledProductList = styled.div`
     }
 `;
 
-const ProductList = ({ children, title }: Props) =>
-  <StyledProductList>
-    <h2>{title}</h2>
-    <div className="list-container">{children}</div>
-  </StyledProductList>;
+class ProductList extends PureComponent<Props> {
+  render () {
+    const { children, title } = this.props;
+    return (
+      <StyledProductList>
+        <h2>{title}</h2>
+        <div className="list-container">{children}</div>
+      </StyledProductList>);
+  }
+}
 
 export default ProductList;

@@ -6,6 +6,9 @@ module.exports = {
   publicPath: `file/widget/${COMPONENT_NAME}/js/`,
   componentName: COMPONENT_NAME,
   dependencies: {
+    // "/file/globals/z4ma.globals.min.js":"/file/globals/z4ma.globals.min.js",
+    // "react":"react",
+    // "react-dom":"react-dom",
     // "styled-components": {
     //   commonjs: "styled-components",
     //   commonjs2: "styled-components",
@@ -25,6 +28,6 @@ module.exports = {
     numberFormatHelper: "numberFormatHelper",
     "pageLayout/product": "pageLayout/product",
     "ojs/ojcore": "ojs/ojcore",
-    "ojs/ojvalidation": "ojs/ojvalidation",
+    "ojs/ojvalidation": "ojs/ojvalidation"
   }
 };

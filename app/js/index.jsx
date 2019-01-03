@@ -19,11 +19,10 @@
  */
 
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import ReactApplication from "./app/App";
-import occProvider from './app/occProvider/OccProvider';
+import App from "./app/App";
 
 define([
   "knockout",
@@ -36,23 +35,21 @@ define([
   "pageLayout/product"
 ], function def (ko, $, pubsub, notifier, ccConstants, ccRestClient, logger, Product) {
 
-  let App;
+  let occData;
 
   return {
     onLoad (model) {
       const occDependencies = {
         ko, $, pubsub, notifier, ccConstants, ccRestClient, logger, Product
       };
-
-      // Mode and dependencies get injected into your App here.
-      App = occProvider(ReactApplication, {
+      occData = {
         model,
         occDependencies
-      })
+      };
     },
-    onRender() {
-      ReactDOM.render(<App />, document.getElementById('occReactComponent'));
+    onRender () {
+      ReactDOM.render(<App {...occData}/>, document.getElementById("occReactComponent"));
     }
-  }
+  };
 });
 
