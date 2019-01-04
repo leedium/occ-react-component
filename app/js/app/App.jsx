@@ -18,29 +18,28 @@
  */
 
 
+import React, { Fragment } from "react";
+import { hot } from "react-hot-loader/root";
 
-import React, {Fragment} from "react";
-import { hot } from 'react-hot-loader/root';
-
-import Product from './modules/Product/Product';
-import ProductList from './modules/ProductList/ProductList';
+import Product from "./modules/Product/Product";
+import ProductList from "./modules/ProductList/ProductList";
 
 type Props = {
   occDependencies: {},
   model: {}
 }
 
-const App = (props: Props) => {
+const App = (props: Props): Function => {
   const { model, occDependencies } = props;
   console.log(`[occ-react-component]:  widget model:`, model);
   console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
   return (
-        <Fragment>
-          <ProductList title="OCC React Component Example">
-              <Product productId="ni115o003" {...props} />
-              <Product productId="mars_snickers" {...props} />
-          </ProductList>
-        </Fragment>
+    <Fragment>
+      <ProductList title="OCC React Component Example">
+        <Product key="ni115o003" productId="ni115o003" {...props} />
+        <Product key="mars_snickers" productId="mars_snickers" {...props} />
+      </ProductList>
+    </Fragment>
   );
 };
 

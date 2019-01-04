@@ -10,7 +10,7 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
-import SkuThumb from '../SkuThumb/SkuThumb'
+import SkuThumb from '../SkuThumb/SkuThumb';
 
 type Props = {
   productId: string,
@@ -77,12 +77,8 @@ class Product extends PureComponent<Props, State> {
       this.setState({
         productData: data
       });
-    }, (err) => {}, productId);
+    }, () => {}, productId);
   }
-
-  skuSelected = (item) => {
-
-  };
 
   createMarkup = (__html): Object => (
     { __html }
@@ -99,7 +95,7 @@ class Product extends PureComponent<Props, State> {
           <div className="product__details">
             <p dangerouslySetInnerHTML={this.createMarkup(longDescription)} />
             <ul className="product__skus">
-              {childSKUs.map( item => <SkuThumb key={item.id} itemData={item} handleClick={this.skuSelected} />)}
+              {childSKUs.map( item => <SkuThumb key={item.repositoryId} itemData={item} handleClick={this.skuSelected} />)}
             </ul>
           </div>
         </StyledProduct>

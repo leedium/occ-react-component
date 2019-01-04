@@ -2,7 +2,7 @@
   "scripts": {
     "build": "babel jsx -d js",
     "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production",
+    "build:prod": "webpack --env.production --mode=production",
     "watch": "webpack --watch",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
@@ -54,8 +54,8 @@
     "postcss-nested": "^4.1.1",
     "postcss-preset-env": "^6.5.0",
     "prettier": "^1.14.3",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-hot-loader": "^4.6.3",
     "react-test-renderer": "^16.5.2",
     "style-loader": "^0.23.1",
@@ -69,10 +69,13 @@
     "webpack-hot-middleware": "^2.24.1",
     "webpack-obfuscator": "^0.18.0"
   },
+  "peerDependencies": {
+    "styled-components": "^4.1.3"
+  },
   "name": "occ-react-component",
-  "version": "1.7.3",
+  "version": "1.8.3",
   "description": "Tool to help build react components for Oracle Commerce Cloud",
-  "main": "inde.js",
+  "main": "app/index.js",
   "repository": "git@github.com:leedium/occ-react-component.git",
   "author": "David Lee <david@leedium.com>",
   "license": "GNU"
