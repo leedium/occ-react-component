@@ -37,7 +37,6 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 
 #### Tested versions
 Node.js version: 10.13.0
-=======
 
 #### Status
 - ~use shared vendor bundle~
