@@ -7,44 +7,63 @@ const postcssImport = require("postcss-import");
 const postcssPresetEnv = require("postcss-preset-env");
 const cssnano = require("cssnano");
 
-const componentConfig = require("./externalDependencies");
-const dllManifest = require("./dll/sharedBundles.dll.js.json");
-
+const OCC_GLOBAL_FILE_NAME = "z4ma.globals.min.js";
+const COMPONENT_NAME = "occReactComponent";
+const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`;
 
 module.exports = (env, argv) => {
-
-  // console.log('==>',env, argv)
+  const isProd = argv.mode === "production";
+  const dllManifest = require(`./vendorManifest/vendor-${
+    isProd ? "prod" : "dev"
+  }.json`);
 
   return {
+    mode: argv.mode,
     entry: {
       index: "./app/js/index.jsx"
     },
-    devtool: argv.mode === "production" ? "none" : "eval-source-map",
+    devtool: isProd ? "none" : "eval-source-map",
     output: {
-      path: path.resolve(
-        __dirname, componentConfig.publicPath
-      ),
+      path: path.resolve(__dirname, PUBLIC_PATH),
       filename: "bundle.js",
       chunkFilename: "[name].bundle.js",
-      publicPath: componentConfig.publicPath,
+      publicPath: PUBLIC_PATH,
       libraryTarget: "amd"
     },
-    externals: componentConfig.dependencies,
+    externals: {
+      knockout: "knockout",
+      jquery: "jquery",
+      pubsub: "pubsub",
+      ccConstants: "ccConstants",
+      ccRestClient: "ccRestClient",
+      navigation: "navigation",
+      notifier: "notifier",
+      ccLogger: "ccLogger",
+      CCi18n: "CCi18n",
+      ccNumber: "ccNumber",
+      currencyHelper: "currencyHelper",
+      numberFormatHelper: "numberFormatHelper",
+      "pageLayout/product": "pageLayout/product",
+      "ojs/ojcore": "ojs/ojcore",
+      "ojs/ojvalidation": "ojs/ojvalidation"
+    },
     devServer: {
       hot: true,
       https: true,
       inline: true,
       disableHostCheck: true,
       port: 9000,
-      contentBase: path.resolve(
-        __dirname, componentConfig.publicPath
-      ),
+      contentBase: path.resolve(__dirname, PUBLIC_PATH),
       historyApiFallback: true
     },
     resolve: {
       extensions: [".js", ".jsx", ".json"],
       alias: {
-        "styled-components": path.resolve(__dirname, "node_modules", "styled-components")
+        "styled-components": path.resolve(
+          __dirname,
+          "node_modules",
+          "styled-components"
+        )
       }
     },
     stats: {
@@ -52,21 +71,22 @@ module.exports = (env, argv) => {
       reasons: false,
       chunks: true
     },
-    optimization:{
+    optimization: {
       minimize: false
     },
-    plugins: [
+    plugins: isProd
+      ? [
+          // new BundleAnalyzerPlugin(),
+          new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: dllManifest,
+            name: `/file/globals/${OCC_GLOBAL_FILE_NAME}`,
+            sourceType: "amd"
+          }),
 
-      // new BundleAnalyzerPlugin(),
-      new webpack.DllReferencePlugin({
-        context: __dirname,
-        manifest: dllManifest,
-        name: "/file/globals/z4ma.globals.min.js",
-        sourceType: "amd"
-      }),
-
-      new webpack.HotModuleReplacementPlugin()
-    ],
+          new webpack.HotModuleReplacementPlugin()
+        ]
+      : [new webpack.HotModuleReplacementPlugin()],
     module: {
       rules: [
         {
@@ -97,7 +117,7 @@ module.exports = (env, argv) => {
             {
               loader: "postcss-loader",
               options: {
-                plugins: (loader) => [
+                plugins: loader => [
                   postcssImageSizes({ assetsPath: "app/js/app/images" }),
                   postcssNested,
                   postcssImport({ root: loader.resourcePath }),
@@ -112,4 +132,3 @@ module.exports = (env, argv) => {
     }
   };
 };
-

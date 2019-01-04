@@ -23,8 +23,7 @@ import styled from "styled-components";
 
 type Props = {
   itemData: {},
-  handleClick: Function,
-  key: string
+  handleClick: Function
 }
 
 export const StyledSkuThumb = styled.button`
@@ -42,8 +41,8 @@ export const StyledSkuThumb = styled.button`
 
 class SkuThumb extends PureComponent<Props>{
   render(){
-    const { itemData, handleClick, key } =this.props;
-    return (<StyledSkuThumb type="button" key={key} onClick={() => handleClick(itemData)}>
+    const { itemData, handleClick} =this.props;
+    return (<StyledSkuThumb type="button" onClick={() => handleClick(itemData)}>
       <img src={itemData.primaryThumbImageURL || '/ccstore/v1/images/?source=/img/no-image.jpg&height=100&width=100' } alt={`${itemData.displayName} - ${itemData.repositoryId}`}/>
       <p>{itemData.listPrice}</p>
     </StyledSkuThumb>);

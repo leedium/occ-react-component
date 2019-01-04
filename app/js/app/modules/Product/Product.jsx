@@ -95,7 +95,7 @@ class Product extends PureComponent<Props, State> {
           <div className="product__details">
             <p dangerouslySetInnerHTML={this.createMarkup(longDescription)} />
             <ul className="product__skus">
-              {childSKUs.map( item => <SkuThumb key={item.id} itemData={item} handleClick={this.skuSelected} />)}
+              {childSKUs.map( item => <SkuThumb key={item.repositoryId} itemData={item} handleClick={this.skuSelected} />)}
             </ul>
           </div>
         </StyledProduct>

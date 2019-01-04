@@ -1,15 +1,16 @@
 # occ-react-component
 Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 
-
-<img src="https://github.com/leedium/occ-react-component/blob/develop/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
+<img src="https://github.com/leedium/occ-react-component/blob/master/graphics/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
 
 #### version
-1.8.3
+2.0.0
 
 #### change log
-1.8.3
-  - Udated to use Dynamic Linked Library (DLL) which are shared webpack bundles across applications
+2.0.0
+  - Refactored to use shared Dynamic Linked Library (DLL) which are shared webpack bundles across applications. Bundles are created with
+  [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
+
 
 1.7.3
   - updated working example to include ccRest Client and Product Data manipulation
@@ -39,6 +40,7 @@ Node.js version: 10.13.0
 =======
 
 #### Status
+- ~use shared vendor bundle~
 -  OCC extension deployments scripts
 -  React.lazy, React.Suspense example (bundle split, dynamic import)
 - ~hot module reload~
@@ -48,8 +50,8 @@ Node.js version: 10.13.0
 - ~dependency cleanup~
 
 #### Tested versions
-Node.js version: 10.13.0
-React version: 16.6.3
+Node.js: 10.13.0
+React: 16.7.0
 
 ### Included
 - [React Hot Module Reloader](https://github.com/gaearon/react-hot-loader)
@@ -85,12 +87,10 @@ Please be aware to externalize styled-components and not include the dependency 
 
 
 ### Dependencies
-Install the OCC React global application widget.
+Install the OCC shared-resource-bundle (application widget).
 [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
-
-There are no production level dependencies for React out of the box as they are included in the global component.
+There are no production level dependencies for React out of the box as they are included in the resource bundle.
 Feel free to add more to the global and your component application.
-
 
 
 ### Installation
@@ -101,11 +101,11 @@ npm i
 ### Configuration
 
 In your /webpack.config.js update the DLLReferencePlugin manifest property with the path
-to the manifest file, and the name of the global vendor bundle you just uploaded 
+to the manifest file, and the name of the global vendor bundle you just uploaded
 ```$xslt
 new webpack.DllReferencePlugin({
         context: __dirname,
-        manifest: require({DLL_MANIFEST_FILE}}),
+        manifest: dllManifest,
         name: "/file/globals/{OCC_GLOBAL_FILE_NAME}",
         sourceType: "amd"
       }),
@@ -134,8 +134,8 @@ If your OCC mode has debug compression off then the 2nd mapping will pick up the
 
 The `*` wildcards will capture all requests to the widget js folder.  You can change this to be more specific.
 
-<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings-file.png?raw=true" alt="Charles proxy mappings 1" />
-<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/develop/proxy-mappings.png?raw=true" alt="Charles proxy mappings 2" />
+<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/master/graphics/proxy-mappings-file.png?raw=true" alt="Charles proxy mappings 1" />
+<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/master/graphics/proxy-mappings.png?raw=true" alt="Charles proxy mappings 2" />
 
 ### \* Important:for Charles, You need to enable SSL Proxying for both your OCC instance and your WebpackDevServer(localhost:9000)
 
@@ -159,7 +159,7 @@ $ npm run watch
 ```
 
 ## Configuration
-Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `externalDependencies.js`
+Add all [OCC](https://docs.oracle.com/en/cloud/saas/commerce-cloud/index.html "Oracle Commer Cloud Portal") [require.js](https://requirejs.org/) dependencies required for your app in `webpack.config.js`
 These will be shimed and made available at runtime to your application.
 Also update the react version.  This should be directly in line with the [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") version
 
