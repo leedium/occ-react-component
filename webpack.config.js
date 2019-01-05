@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2018 LEEDIUM.
+ * This file is subject to the terms and conditions
+ * defined in file 'LICENSE.txt', which is part of this
+ * source code package.
+ */
+
+
 const path = require("path");
 const webpack = require("webpack");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
@@ -6,21 +14,24 @@ const postcssNested = require("postcss-nested");
 const postcssImport = require("postcss-import");
 const postcssPresetEnv = require("postcss-preset-env");
 const cssnano = require("cssnano");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const OCC_GLOBAL_FILE_NAME = "z4ma.globals.min.js";
 const COMPONENT_NAME = "occReactComponent";
 const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`;
+const MAIN_CHUNK_BUNDLE_NAME = "index";
+
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
   const dllManifest = require(`./vendorManifest/vendor-${
     isProd ? "prod" : "dev"
-  }.json`);
+    }.json`);
 
   return {
     mode: argv.mode,
     entry: {
-      index: "./app/js/index.jsx"
+      [MAIN_CHUNK_BUNDLE_NAME]: "./app/js/index.jsx"
     },
     devtool: isProd ? "none" : "eval-source-map",
     output: {
@@ -72,20 +83,25 @@ module.exports = (env, argv) => {
       chunks: true
     },
     optimization: {
-      minimize: false
+      minimizer: [new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i,
+        chunkFilter(chunk) {
+          return chunk.name !== MAIN_CHUNK_BUNDLE_NAME;
+        }
+      })]
     },
     plugins: isProd
       ? [
-          // new BundleAnalyzerPlugin(),
-          new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: dllManifest,
-            name: `/file/globals/${OCC_GLOBAL_FILE_NAME}`,
-            sourceType: "amd"
-          }),
+        // new BundleAnalyzerPlugin(),
+        new webpack.DllReferencePlugin({
+          context: __dirname,
+          manifest: dllManifest,
+          name: `/file/globals/${OCC_GLOBAL_FILE_NAME}`,
+          sourceType: "amd"
+        }),
 
-          new webpack.HotModuleReplacementPlugin()
-        ]
+        new webpack.HotModuleReplacementPlugin()
+      ]
       : [new webpack.HotModuleReplacementPlugin()],
     module: {
       rules: [

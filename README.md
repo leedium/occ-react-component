@@ -8,14 +8,15 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 
 #### change log
 2.0.0
+  - Added uglification / minification for the dynamically loaded chunks
   - Tested for dynamic module importing (React.Lazy, React.Suspense) 
-  \* please note HRM does not work well with the transform-static-properties Babel plugin  
+  \* please note HRM does not work well with the transform-class-properties Babel plugin, so use normal call property structures  
   - Refactored to use shared Dynamic Linked Library (DLL) which are shared webpack bundles across applications. Bundles are created with
   [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 
 
 1.7.3
-  - updated working example to include ccRest Client and Product Data manipulation
+  - updated working example to include ccRestClient and Product Data manipulation
   - moved styled-components to peer dependency (you will need to add this in manually for development build)
   - removed all css file includes for [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
   - fix origin host bug on some osx systems
