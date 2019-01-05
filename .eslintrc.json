@@ -38,10 +38,11 @@
       {
         "peerDependencies": true
       }
-    ]
+    ],
+    "no-unused-vars": 0,
+    "spaced-comment": 0
 
 
-    //    "spaced-comment": 0,
     //    "no-unused-vars": 0,
     //    "no-undef": 0,
     //    "prefer-const": 0,

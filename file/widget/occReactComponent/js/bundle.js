@@ -63,7 +63,7 @@ define(["/file/globals/z4ma.globals.min.js","knockout","jquery","pubsub","notifi
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "dd29da3bfde73fd33a4b";
+/******/ 	var hotCurrentHash = "7e0e143356fcddcaaadc";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
