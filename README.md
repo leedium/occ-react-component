@@ -100,15 +100,20 @@ npm i
 
 ### Configuration
 
-In your /webpack.config.js update the DLLReferencePlugin manifest property with the path
-to the manifest file, and the name of the global vendor bundle you just uploaded
+In your /webpack.config.js update the `dllManifest` manifest variable with the path
+to the manifest file, and the name of the global vendor bundle you just uploaded.  You will need bothe the  `dev` and `prod` versions
+as the file names are postfixed accordingly.
 ```$xslt
-new webpack.DllReferencePlugin({
+  const dllManifest = require(`./vendorManifest/vendor-${
+    isProd ? "prod" : "dev"
+  }.json`);
+
+  new webpack.DllReferencePlugin({
         context: __dirname,
         manifest: dllManifest,
         name: "/file/globals/{OCC_GLOBAL_FILE_NAME}",
         sourceType: "amd"
-      }),
+  }),
 ```
 
 ### Instructions
@@ -117,12 +122,10 @@ The inject props include the widget model, and all your defined dependencies.
 
 
 ### Development
-```
-$ npm run dev
-```
+
 After you install and create an instance in OCC, follow these instructions to
 utilize Hot Module Reload via proxy
-#### Proxy configuration
+#### 1. Proxy configuration
 I personally use Charles, but you should be able to use any web proxy that supports mapping files
 both locally and remotely. The webpack dev server is configured to run https on localhost:9000 so you will need to configure
 your mappings as follows.
@@ -143,9 +146,19 @@ Mappings
 
 | occ serverInstance request ( {env}.oracleoutsourcing.com)  | Proxy mapping  (localhost:9000)|
 | ------------- | ------------- |
+| \*{OCC_HOST}/file/global/{DEV_OCC_GLOBAL_NAME}\* | {PATH_WHERE_YOUR_DEV_BUNDLE_RESIDES}
+| \*{WIDGET_NAME}/js/{OCC-REACT-COMPONENT_BUNDLE}\* | {LOCAL_ROOT}/file/widget/{WIDGET_NAME}/js/{COMPONENT_BUNDLE}
 | \*{WIDGET_NAME}/js/\* | /file/widget/{WIDGET_NAME}/js/
 
 * Ideally you want all the `file/widget/{WIDGET_NAME}/js` OCC requests to map to `localhost:9000/file/widget/{WIDGET_NAME}/js`
+
+
+#### 2.Start the Webpack Dev Server With Hot Module Reload
+```
+$ npm run dev
+```
+
+
 
 ### Build
 dev build - with HMR and styled-components
