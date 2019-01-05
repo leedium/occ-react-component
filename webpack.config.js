@@ -27,7 +27,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, PUBLIC_PATH),
       filename: "bundle.js",
       chunkFilename: "[name].bundle.js",
-      publicPath: PUBLIC_PATH,
+      publicPath: `/${PUBLIC_PATH}`,
       libraryTarget: "amd"
     },
     externals: {

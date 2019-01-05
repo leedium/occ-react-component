@@ -10,7 +10,8 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
-import SkuThumb from '../SkuThumb/SkuThumb';
+import utils from '../../helpers/utils'
+import SkuThumb from "../SkuThumb/SkuThumb";
 
 type Props = {
   productId: string,
@@ -66,25 +67,26 @@ const StyledProduct = styled.div`
 
 class Product extends PureComponent<Props, State> {
 
-  state = {
-    productData: null
-  };
+  constructor (props: Props) {
+    super(props);
+    // HMR does not like the babel transform-class-properties plugin so need to do this
+    this.state = {
+      productData: null
+    };
+  }
 
-  componentDidMount(): void {
+  componentDidMount (): void {
     const { occDependencies, productId } = this.props;
     const { ccRestClient, ccConstants } = occDependencies;
     ccRestClient.request(ccConstants.ENDPOINT_PRODUCTS_GET_PRODUCT, null, (data) => {
       this.setState({
         productData: data
       });
-    }, () => {}, productId);
+    }, () => {
+    }, productId);
   }
 
-  createMarkup = (__html): Object => (
-    { __html }
-  );
-
-  render() {
+  render () {
     const { productData } = this.state;
     if (productData) {
       const { displayName, longDescription, smallImageURLs, childSKUs } = productData;
@@ -93,9 +95,10 @@ class Product extends PureComponent<Props, State> {
           <h2 className="product__title">{displayName}</h2>
           <img className="product__hero-img" src={smallImageURLs[0]} alt=""/>
           <div className="product__details">
-            <p dangerouslySetInnerHTML={this.createMarkup(longDescription)} />
+            <p dangerouslySetInnerHTML={utils.createMarkup(longDescription)}/>
             <ul className="product__skus">
-              {childSKUs.map( item => <SkuThumb key={item.repositoryId} itemData={item} handleClick={this.skuSelected} />)}
+              {childSKUs.map(item => <SkuThumb key={item.repositoryId} itemData={item}
+                                               handleClick={this.skuSelected}/>)}
             </ul>
           </div>
         </StyledProduct>
