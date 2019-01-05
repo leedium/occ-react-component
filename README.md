@@ -8,7 +8,8 @@ Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.ora
 
 #### change log
 2.0.0
-  - Tested for dynamic module importing (React.Lazy, React.Suspense)   
+  - Tested for dynamic module importing (React.Lazy, React.Suspense) 
+  \* please note HRM does not work well with the transform-static-properties Babel plugin  
   - Refactored to use shared Dynamic Linked Library (DLL) which are shared webpack bundles across applications. Bundles are created with
   [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 

@@ -15,9 +15,8 @@
   ],
   "plugins": [
     "react-hot-loader/babel",
-    "add-module-exports",
-    "transform-class-properties",
-    "syntax-dynamic-import",
-    "transform-es2015-modules-commonjs"
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-modules-commonjs",
+    ["@babel/plugin-proposal-class-properties",{"loose": true}]
   ]
 }
