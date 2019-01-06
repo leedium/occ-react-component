@@ -10,7 +10,7 @@
 import React, { PureComponent } from "react";
 import styled from "styled-components";
 
-import utils from '../../helpers/utils'
+import utils from "../../helpers/utils";
 import SkuThumb from "../SkuThumb/SkuThumb";
 
 type Props = {
@@ -67,15 +67,17 @@ const StyledProduct = styled.div`
 
 class Product extends PureComponent<Props, State> {
 
-  constructor (props: Props) {
+  constructor(props: Props) {
     super(props);
     // HMR does not like the babel transform-class-properties plugin so need to do this
     this.state = {
       productData: null
     };
+
+    this.skuSelected = this.skuSelected.bind(this);
   }
 
-  componentDidMount (): void {
+  componentDidMount(): void {
     const { occDependencies, productId } = this.props;
     const { ccRestClient, ccConstants } = occDependencies;
     ccRestClient.request(ccConstants.ENDPOINT_PRODUCTS_GET_PRODUCT, null, (data) => {
@@ -86,7 +88,14 @@ class Product extends PureComponent<Props, State> {
     }, productId);
   }
 
-  render () {
+  skuSelected(id){
+    console.log('props:',this.props);
+    console.log('state:',this.state);
+    console.log('Id selected:',id);
+    return id;
+  }
+
+  render() {
     const { productData } = this.state;
     if (productData) {
       const { displayName, longDescription, smallImageURLs, childSKUs } = productData;
@@ -97,8 +106,10 @@ class Product extends PureComponent<Props, State> {
           <div className="product__details">
             <p dangerouslySetInnerHTML={utils.createMarkup(longDescription)}/>
             <ul className="product__skus">
-              {childSKUs.map(item => <SkuThumb key={item.repositoryId} itemData={item}
-                                               handleClick={this.skuSelected}/>)}
+              {childSKUs.map(item =>
+                <SkuThumb key={item.repositoryId}
+                          {...item}
+                          handleClick={this.skuSelected}/>)}
             </ul>
           </div>
         </StyledProduct>
