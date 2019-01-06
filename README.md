@@ -17,9 +17,9 @@ React: 16.7.0
 OCC: 18.6 (will work with previous versions)  
 
 ## change log
-2.1.0
+2.1.0 
   - Adding Jest, Enzyme test support  
-2.0.0
+2.0.0 
   - Added uglify/minify to dynamically loaded chunks
   - Tested dynamic module importing (React.Lazy, React.Suspense)
   \* Please note, react-hot-reload does not nicely with [@babel/plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) so use normal class property/method structures
@@ -187,24 +187,24 @@ $ npm run build:prod
 ```
 
 You will need to use the `DCU` to manually deploy the files and supplementary bundles after the first extension installations.
-I am currently working on a deployment task which will come in a later version.
+I am currently working on a deployment task which will come in a later version. 
 
 ## Configuration
-Add all proprietory occ dependencies required for your app are referenced as `externals` which you can update in `webpack.config.js` under the `externals` property
+Add all proprietory occ dependencies required for your app are referenced as `externals` which you can update in `webpack.config.js` under the `externals` property 
 
 
 ## Credits
-[nodejs](https://github.com/nodejs/node)
-[webpack 4](https://webpack.js.org/)
-[babel 7](https://github.com/babel/babel)
-[eslint](https://eslint.org/ "Eslint")
-[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
-[reactjs](https://github.com/facebook/react/)
-[react-hot-loader](https://github.com/gaearon/react-hot-loader)
-[styled-components](https://github.com/styled-components/styled-components)
-[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)
-Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration
-Thanks [@bholt](https://github.com/btholt) react inspiration
+[nodejs](https://github.com/nodejs/node)   
+[webpack 4](https://webpack.js.org/)  
+[babel 7](https://github.com/babel/babel)   
+[eslint](https://eslint.org/ "Eslint")  
+[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow") 
+[reactjs](https://github.com/facebook/react/)   
+[react-hot-loader](https://github.com/gaearon/react-hot-loader)   
+[styled-components](https://github.com/styled-components/styled-components)   
+[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)     
+Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration    
+Thanks [@bholt](https://github.com/btholt) react inspiration    
 
 
 ## Related
