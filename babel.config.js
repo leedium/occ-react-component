@@ -13,7 +13,12 @@ module.exports = {
     ],
     "@babel/preset-react"
   ],
-
+  env: {
+    test: {
+      plugins: ["@babel/plugin-syntax-dynamic-import"],
+      presets: [["@babel/preset-env"], "@babel/preset-react"]
+    }
+  },
   plugins: [
     "react-hot-loader/babel",
     "@babel/plugin-syntax-dynamic-import",
