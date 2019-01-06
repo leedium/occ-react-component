@@ -7,8 +7,8 @@
 
 // @flow
 
-const createMarkup  = (html: string): Object => ({ __html: html });
+const createMarkup = (html: string): Object => ({ __html: html });
 
 export default {
   createMarkup
-}
+};

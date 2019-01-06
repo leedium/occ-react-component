@@ -5,7 +5,6 @@
  * source code package.
  */
 
-
 const path = require("path");
 const webpack = require("webpack");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
@@ -21,12 +20,11 @@ const COMPONENT_NAME = "occReactComponent";
 const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`;
 const MAIN_CHUNK_BUNDLE_NAME = "index";
 
-
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
   const dllManifest = require(`./vendorManifest/vendor-${
     isProd ? "prod" : "dev"
-    }.json`);
+  }.json`);
 
   return {
     mode: argv.mode,
@@ -83,25 +81,27 @@ module.exports = (env, argv) => {
       chunks: true
     },
     optimization: {
-      minimizer: [new UglifyJsPlugin({
-        test: /\.js(\?.*)?$/i,
-        chunkFilter(chunk) {
-          return chunk.name !== MAIN_CHUNK_BUNDLE_NAME;
-        }
-      })]
+      minimizer: [
+        new UglifyJsPlugin({
+          test: /\.js(\?.*)?$/i,
+          chunkFilter(chunk) {
+            return chunk.name !== MAIN_CHUNK_BUNDLE_NAME;
+          }
+        })
+      ]
     },
     plugins: isProd
       ? [
-        // new BundleAnalyzerPlugin(),
-        new webpack.DllReferencePlugin({
-          context: __dirname,
-          manifest: dllManifest,
-          name: `/file/globals/${OCC_GLOBAL_FILE_NAME}`,
-          sourceType: "amd"
-        }),
+          // new BundleAnalyzerPlugin(),
+          new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: dllManifest,
+            name: `/file/globals/${OCC_GLOBAL_FILE_NAME}`,
+            sourceType: "amd"
+          }),
 
-        new webpack.HotModuleReplacementPlugin()
-      ]
+          new webpack.HotModuleReplacementPlugin()
+        ]
       : [new webpack.HotModuleReplacementPlugin()],
     module: {
       rules: [
