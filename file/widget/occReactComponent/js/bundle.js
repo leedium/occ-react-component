@@ -111,7 +111,7 @@ define([
     }
     /******/
     /******/ var hotApplyOnUpdate = true; // eslint-disable-next-line no-unused-vars
-    /******/ /******/ var hotCurrentHash = "6fe382f15c1506b05bb8";
+    /******/ /******/ var hotCurrentHash = "b61c97782ddee79d9e5a";
     /******/ var hotRequestTimeout = 10000;
     /******/ var hotCurrentModuleData = {};
     /******/ var hotCurrentChildModule; // eslint-disable-next-line no-unused-vars
@@ -1027,7 +1027,9 @@ define([
         /***/
       },
       /* 1 */
-      /***/ function(module, exports) {
+      /***/ function(module, exports, __webpack_require__) {
+        "use strict";
+
         module.exports = function(module) {
           if (!module.webpackPolyfill) {
             module.deprecate = function() {};
@@ -1037,13 +1039,13 @@ define([
             if (!module.children) module.children = [];
             Object.defineProperty(module, "loaded", {
               enumerable: true,
-              get: function() {
+              get: function get() {
                 return module.l;
               }
             });
             Object.defineProperty(module, "id", {
               enumerable: true,
-              get: function() {
+              get: function get() {
                 return module.i;
               }
             });
@@ -1305,6 +1307,7 @@ define([
       },
       /* 8 */
       /***/ function(module, exports, __webpack_require__) {
+        "use strict";
         /* WEBPACK VAR INJECTION */ (function(module) {
           if (true) {
             var hot = __webpack_require__(0).hot;
@@ -1384,10 +1387,36 @@ define([
             enterModule && enterModule(module);
           })();
 
+          function _extends() {
+            _extends =
+              Object.assign ||
+              function(target) {
+                for (var i = 1; i < arguments.length; i++) {
+                  var source = arguments[i];
+                  for (var key in source) {
+                    if (Object.prototype.hasOwnProperty.call(source, key)) {
+                      target[key] = source[key];
+                    }
+                  }
+                }
+                return target;
+              };
+            return _extends.apply(this, arguments);
+          }
+
           function _inheritsLoose(subClass, superClass) {
             subClass.prototype = Object.create(superClass.prototype);
             subClass.prototype.constructor = subClass;
             subClass.__proto__ = superClass;
+          }
+
+          function _assertThisInitialized(self) {
+            if (self === void 0) {
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              );
+            }
+            return self;
           }
 
           function _templateObject() {
@@ -1426,6 +1455,9 @@ define([
                 _this.state = {
                   productData: null
                 };
+                _this.skuSelected = _this.skuSelected.bind(
+                  _assertThisInitialized(_assertThisInitialized(_this))
+                );
                 return _this;
               }
 
@@ -1450,6 +1482,13 @@ define([
                   function() {},
                   productId
                 );
+              };
+
+              _proto.skuSelected = function skuSelected(id) {
+                console.log("props:", this.props);
+                console.log("state:", this.state);
+                console.log("Id selected:", id);
+                return id;
               };
 
               _proto.render = function render() {
@@ -1495,11 +1534,15 @@ define([
                         childSKUs.map(function(item) {
                           return _react.default.createElement(
                             _SkuThumb.default,
-                            {
-                              key: item.repositoryId,
-                              itemData: item,
-                              handleClick: _this3.skuSelected
-                            }
+                            _extends(
+                              {
+                                key: item.repositoryId
+                              },
+                              item,
+                              {
+                                handleClick: _this3.skuSelected
+                              }
+                            )
                           );
                         })
                       )
@@ -1672,7 +1715,7 @@ define([
 
           function _templateObject() {
             var data = _taggedTemplateLiteralLoose([
-              "\n\n  div,\n  img {\n    display: block;\n  }\n  \n  border: 0;\n  outline: 0;\n  \n  \n"
+              "\n  div,\n  img {\n    display: block;\n  }\n  \n  border: 0;\n  outline: 0;\n"
             ]);
 
             _templateObject = function _templateObject() {
@@ -1709,23 +1752,24 @@ define([
 
               _proto.render = function render() {
                 var _this$props = this.props,
-                  itemData = _this$props.itemData,
+                  primaryThumbImageURL = _this$props.primaryThumbImageURL,
+                  listPrice = _this$props.listPrice,
+                  repositoryId = _this$props.repositoryId,
+                  displayName = _this$props.displayName,
                   handleClick = _this$props.handleClick;
                 return _react.default.createElement(
                   StyledSkuThumb,
                   {
                     type: "button",
-                    onClick: function onClick() {
-                      return handleClick(itemData);
+                    onClick: function onClick(e) {
+                      handleClick(repositoryId);
                     }
                   },
                   _react.default.createElement("img", {
-                    src:
-                      itemData.primaryThumbImageURL ||
-                      "/ccstore/v1/images/?source=/img/no-image.jpg&height=100&width=100",
-                    alt: itemData.displayName + " - " + itemData.repositoryId
+                    src: primaryThumbImageURL,
+                    alt: displayName + " - " + repositoryId
                   }),
-                  _react.default.createElement("p", null, itemData.listPrice)
+                  _react.default.createElement("p", null, listPrice)
                 );
               };
 

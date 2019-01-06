@@ -18,16 +18,18 @@
  */
 
 
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 type Props = {
-  itemData: {},
+  repositoryId: string,
+  displayName: string,
+  primaryThumbImageURL: string,
+  listPrice: string,
   handleClick: Function
 }
 
 export const StyledSkuThumb = styled.button`
-
   div,
   img {
     display: block;
@@ -35,17 +37,18 @@ export const StyledSkuThumb = styled.button`
   
   border: 0;
   outline: 0;
-  
-  
 `;
 
-class SkuThumb extends PureComponent<Props>{
-  render(){
-    const { itemData, handleClick} =this.props;
-    return (<StyledSkuThumb type="button" onClick={() => handleClick(itemData)}>
-      <img src={itemData.primaryThumbImageURL || '/ccstore/v1/images/?source=/img/no-image.jpg&height=100&width=100' } alt={`${itemData.displayName} - ${itemData.repositoryId}`}/>
-      <p>{itemData.listPrice}</p>
-    </StyledSkuThumb>);
+class SkuThumb extends PureComponent<Props> {
+  render() {
+    const { primaryThumbImageURL, listPrice, repositoryId, displayName, handleClick } = this.props;
+    return (
+      <StyledSkuThumb type="button" onClick={ (e)=>{handleClick(repositoryId)}} >
+      <img src={primaryThumbImageURL}
+           alt={`${displayName} - ${repositoryId}`}/>
+      <p>{listPrice}</p>
+    </StyledSkuThumb>
+    );
   }
 }
 
