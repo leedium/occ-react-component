@@ -77,40 +77,46 @@ $ npm i
 ```
 
 ### Configuration
-In your `/webpack.config.js` update the `dllManifest` manifest variable with the path
-to the manifest file, and the name of the global vendor bundle you just uploaded.  You will need the  `dev` and `prod` versions . as the file names are postfixed accordingly when built.  These files are generated with the [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle").  See [instructions](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") on how to set up.
+1.  Naturally update occ widget configuration in `/file`  
+
+2.  Update `webpack.config`  
+
+`OCC_GLOBAL_FILE_NAME`:  filename of your [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") . ex: `react.vendor.min.js`  
+`COMPONENT_NAME`: name of installed OCC component as defined by file/widget/`{componentName}`    
+`MAIN_CHUNK_BUNDLE_ID`: Id for the entry bundle.  In most cases you will only have one, but depending on how you configure your chunking, this ID is used to prvent uglification/minification as OCC will perform this.   
+`PUBLIC_PATH`: DO NOT CHANGE .  
+`externals`:  Mappings to OCC specific require.js dependencies.  ie: (knockout.js, jquery, etc etc...)  
+
+
+In your `/webpack.config.js` update the `dllManifest` variable with the path to where you copied the files. <b>Update only the prefix.</b>   
 ```$xslt
   const dllManifest = require(`./vendorManifest/vendor-${
     isProd ? "prod" : "dev"
   }.json`);
-
-  new webpack.DllReferencePlugin({
-        context: __dirname,
-        manifest: dllManifest,
-        name: "/file/globals/{OCC_GLOBAL_FILE_NAME}",
-        sourceType: "amd"
-  }),
 ```
+You will need the `dev` and `prod` versions as the filenames are postfixed accordingly when built.   
+These manifest files are generated with [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle").   
+See [instructions](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") on how to set this up.
+
 
 ### Instructions
-`app/js/index.jsx` is your entry application file.  Use this as your staring point to modify the widget model, and all your defined dependencies.
+`app/js/index.jsx` is your entry application file.  Use this as your starting point to modify the widget model, and all your defined occ dependencies.
 \* `ReactDOM.render()` is called on the onRender() method of the widget, which is data-bound in the occ widget template.
 
-`/app/js/app/App.jsx` is your Working Raect application file. Go Nuts from here!
+`/app/js/app/App.jsx` is your working Raect application file. Go Nuts from here!
 
 ### Initial Upload
-The native OCC widget and combined bundles are located in `file/`.  Create your zip extension from `file/` to upload to the OCC Admin.
+The native OCC widget and combined bundles are located in `file/`.  Create your .zip extension from `file/` to upload to the OCC Admin.
 
 ## Development and Workflow
-After you install and create an instance in OCC, follow these instructions to utilize Hot Module Reload via proxy.   
+After you install and create a widget instance in OCC, you will need follow these instructions to utilize Hot Module Reloading via proxy.   
 
 ### 1. Proxy configuration
 
 I personally use Charles, but you should be able to use any web proxy that supports mapping files
-both locally and remotely. The webpack dev server is configured to run https on localhost:9000 so you will need to configure
-your mappings as follows.  
-The file specific mapping with cover the minified file name and point it to the non minified file name "".
-If your OCC mode has debug compression off then the 2nd mapping will pick up the file naturally.
+both locally and remotely. The webpack dev server is configured to run on `https://localhost:9000` so you will need to configure your proxy mappings.  
+The file specific mapping with cover the minified file name and point it to the non minified file name "".   
+\* If your OCC mode has debug compression off then the 2nd mapping will pick up the file naturally.
 
 The `*` wildcards will capture all requests to the widget js folder.  You can change this to be more specific.
 
@@ -123,14 +129,14 @@ The `*` wildcards will capture all requests to the widget js folder.  You can ch
 
 | occ serverInstance request | mapping |
 | ------------- | ------------- |
-| \*{WIDGET_NAME}/js/{OCC-REACT-COMPONENT_BUNDLE}\* | {LOCAL_ROOT}/file/widget/{WIDGET_NAME}/js/{COMPONENT_BUNDLE} |
-| \*{WIDGET_NAME}/js/\* | /file/widget/{WIDGET_NAME}/js/ |
+| \*{componentName}/js/{OCC-REACT-COMPONENT_BUNDLE}\* |http://localhost:9000/file/widget/{componentName}/js/{COMPONENT_BUNDLE} |   
+| \*{componentName}/js/\* | http://localhost:9000/file/widget/{componentName}/js/ |
 
 #### Local Proxy Mappings (filesystem)  
 
 | occ serverInstance request | mapping |
 | ------------- | ------------- |
-| \*{OCC_HOST}/file/global/{DEV_OCC_GLOBAL_NAME}\* | {PATH_WHERE_YOUR_DEV_BUNDLE_RESIDES} |
+| \*{https://instance.oracleoutsouring.com}/file/global/{DEV_OCC_GLOBAL_NAME}\* | file://{PATH_WHERE_YOUR_DEV_BUNDLE_RESIDES} |
 
 
 
@@ -159,16 +165,16 @@ Add all proprietory occ dependencies required for your app are referenced as `ex
 
 
 ## Credits    
-[nodejs](https://github.com/nodejs/node)
-[webpack](https://webpack.js.org/)   
-[babel 7](https://github.com/babel/babel) 
-[eslint](https://eslint.org/ "Eslint")
-[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
+[nodejs](https://github.com/nodejs/node)  
+[webpack 4](https://webpack.js.org/)  
+[babel 7](https://github.com/babel/babel)   
+[eslint](https://eslint.org/ "Eslint")  
+[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")  
 [reactjs](https://github.com/facebook/react/)   
 [react-hot-loader](https://github.com/gaearon/react-hot-loader)  
-[styled-components](https://github.com/styled-components/styled-components)
-[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)
-Thanks [@bholt](https://github.com/btholt) for the react starter pak. 
+[styled-components](https://github.com/styled-components/styled-components)  
+[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)   
+Thanks [@bholt](https://github.com/btholt) for the react starter pak  
 
 
 ## Related
