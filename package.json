@@ -1,13 +1,14 @@
 {
   "scripts": {
     "build": "babel jsx -d js",
-    "build:dev": "jest && webpack --mode=development",
+    "build:dev": "jest  && webpack --mode=development",
     "build:prod": "jest && webpack --env.production --mode=production",
     "watch": "webpack --watch",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "dev": "webpack-dev-server --mode=development",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:update": "jest -u",
     "test:coverage": "jest --coverage",
     "flow": "flow"

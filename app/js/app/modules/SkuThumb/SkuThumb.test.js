@@ -140,9 +140,20 @@ const dummySkuData = {
   configurable: false
 };
 
+// Snapshot test
 it("renderer correctly", () => {
   const tree = renderer
-    .create(<SkuThumb key={dummySkuData.repositoryId} {...dummySkuData} />)
+    .create(
+      <SkuThumb
+        handleClick={e => e}
+        key={dummySkuData.repositoryId}
+        {...dummySkuData}
+      />
+    )
     .toJSON();
+  expect(tree).toMatchSnapshot();
+
+  // test the click
+  console.log(tree.props.onClick());
   expect(tree).toMatchSnapshot();
 });
