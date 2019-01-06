@@ -17,8 +17,8 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const OCC_GLOBAL_FILE_NAME = "z4ma.globals.min.js";
 const COMPONENT_NAME = "occReactComponent";
-const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`;
-const MAIN_CHUNK_BUNDLE_NAME = "index";
+const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`; //DO NOT CHANGE
+const MAIN_CHUNK_BUNDLE_ID = "index";
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
   return {
     mode: argv.mode,
     entry: {
-      [MAIN_CHUNK_BUNDLE_NAME]: "./app/js/index.jsx"
+      [MAIN_CHUNK_BUNDLE_ID]: "./app/js/index.jsx"
     },
     devtool: isProd ? "none" : "eval-source-map",
     output: {
@@ -85,7 +85,7 @@ module.exports = (env, argv) => {
         new UglifyJsPlugin({
           test: /\.js(\?.*)?$/i,
           chunkFilter(chunk) {
-            return chunk.name !== MAIN_CHUNK_BUNDLE_NAME;
+            return chunk.name !== MAIN_CHUNK_BUNDLE_ID;
           }
         })
       ]
