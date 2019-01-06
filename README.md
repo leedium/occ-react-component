@@ -18,7 +18,8 @@ OCC: 18.6 (will work with previous versions)
 
 ## change log
 2.1.0 
-  - Adding Jest, Enzyme test support  
+  - Adding Jest, Enzyme test support
+  
 2.0.0 
   - Added uglify/minify to dynamically loaded chunks
   - Tested dynamic module importing (React.Lazy, React.Suspense)
