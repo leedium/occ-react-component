@@ -1,5 +1,5 @@
 # occ-react-component
-Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud").
+Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")  
 <b>Must</b> be used  with [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 
 <img src="https://github.com/leedium/occ-react-component/blob/master/graphics/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
@@ -12,13 +12,13 @@ Hot Module Reload(HRM) allows developers to update component in real-time withou
 works by way of code injection via sockets. To use this in the OCC instance you need a proxy. I use [Charles](https://www.charlesproxy.com/), but I'm sure any proxy which allows you to map and wildcard files will work.  Please see Proxy configuration for charles settings.
 
 ## version
-Component: 2.1.1
-React: 16.7.0
-OCC: 18.6 (will work with previous versions)
+Component: 2.1.1  
+React: 16.7.0  
+OCC: 18.6 (will work with previous versions)  
 
 ## change log
 2.1.0
-  - Adding Jest, Enzyme test support
+  - Adding Jest, Enzyme test support  
 2.0.0
   - Added uglify/minify to dynamically loaded chunks
   - Tested dynamic module importing (React.Lazy, React.Suspense)
@@ -83,11 +83,11 @@ $ npm i
 
 2.  Update `webpack.config`
 
-`OCC_GLOBAL_FILE_NAME`:  filename of your [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") . ex: `react.vendor.min.js`
-`COMPONENT_NAME`: name of installed OCC component as defined by file/widget/`{componentName}`
-`MAIN_CHUNK_BUNDLE_ID`: Id for the entry bundle.  In most cases you will only have one, but depending on how you configure your chunking, this ID is used to prvent uglification/minification as OCC will perform this.
-`PUBLIC_PATH`: DO NOT CHANGE .
-`externals`:  Mappings to OCC specific require.js dependencies.  ie: (knockout.js, jquery, etc etc...)
+`OCC_GLOBAL_FILE_NAME`:  filename of your [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") . ex: `react.vendor.min.js`  
+`COMPONENT_NAME`: name of installed OCC component as defined by file/widget/`{componentName}`    
+`MAIN_CHUNK_BUNDLE_ID`: Id for the entry bundle.  In most cases you will only have one, but depending on how you configure your chunking, this ID is used to prvent uglification/minification as OCC will perform this.  
+`PUBLIC_PATH`: DO NOT CHANGE  
+`externals`:  Mappings to OCC specific require.js dependencies.  ie: (knockout.js, jquery, etc etc...)  
 
 
 In your `/webpack.config.js` update the `dllManifest` variable with the path to where you copied the files. <b>Update only the prefix.</b>
