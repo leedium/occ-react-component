@@ -1,22 +1,23 @@
-{
-  "presets": [
+module.exports = {
+  presets: [
     "@babel/preset-flow",
     [
       "@babel/preset-env",
       {
-        "loose": true,
-        "modules": false,
-        "targets": {
-          "browsers": ["last 2 versions", "safari >= 7"]
+        loose: true,
+        modules: false,
+        targets: {
+          browsers: ["last 2 versions", "safari >= 7"]
         }
       }
     ],
     "@babel/preset-react"
   ],
-  "plugins": [
+
+  plugins: [
     "react-hot-loader/babel",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-modules-commonjs",
-    ["@babel/plugin-proposal-class-properties",{"loose": true}]
+    ["@babel/plugin-proposal-class-properties", { loose: true }]
   ]
-}
+};

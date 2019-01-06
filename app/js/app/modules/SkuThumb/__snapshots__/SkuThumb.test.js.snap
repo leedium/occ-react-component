@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderer correctly 1`] = `
+<button
+  className="sc-bdVaJa dmxoXw"
+  onClick={[Function]}
+  type="button"
+>
+  <img
+    alt="AIR FORCE 1 '07 LV8 UTILITY - Sneakers low - Volt - NI115O003-M11-46"
+    src="/ccstore/v1/images/?source=/file/v3675309913098592948/products/ni115o003.M11-heroLeft.png&height=100&width=100"
+  />
+  <p>
+    109.95
+  </p>
+</button>
+`;
