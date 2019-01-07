@@ -81,6 +81,10 @@ $ npm i
 
 ### Configuration
 1.  Naturally update occ widget configuration in `/file`
+(don't forget to update the widget template files with your component's name)
+```
+ <div data-bind="onRender: onRender.bind($data)" id="{componentName}"></div>
+```
 
 2.  Update `webpack.config`
 
