@@ -23,7 +23,7 @@ OCC: 18.6 (will work with previous versions)
 2.0.0 
   - Added uglify/minify to dynamically loaded chunks
   - Tested dynamic module importing (React.Lazy, React.Suspense)
-  \* Please note, react-hot-reload does not nicely with [@babel/plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) so use normal class property/method structures
+  \* Please note, react-hot-reload does not work nicely with [@babel/plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) so use normal class property/method structures
   - Refactored to use [DLLPlugin](https://webpack.js.org/plugins/dll-plugin/ "Webpack DLLPlugin")
 
 1.7.3
