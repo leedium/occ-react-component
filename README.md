@@ -80,8 +80,8 @@ $ npm i
 ```
 
 ### Configuration
-1.  Naturally update occ widget configuration in `/file`
-(don't forget to update the widget template files with your component's name)
+1.  Naturally update occ widget configuration in `/file` as well as the layout sub folder name `/file/widget/{componentName}/layouts/{componentName}Default`
+(don't forget to update the id in widget template files with your component's name, and rename all the classes)
 ```
  <div data-bind="onRender: onRender.bind($data)" id="{componentName}"></div>
 ```
