@@ -12,7 +12,7 @@ Hot Module Reload(HRM) allows developers to update component in real-time withou
 works by way of code injection via sockets. To use this in the OCC instance you need a proxy. I use [Charles](https://www.charlesproxy.com/), but I'm sure any proxy which allows you to map and wildcard files will work.  Please see Proxy configuration for charles settings.
 
 ## version
-Component: 2.1.1  
+Component: 2.1.0 
 React: 16.7.0  
 OCC: 18.6 (will work with previous versions)  
 
