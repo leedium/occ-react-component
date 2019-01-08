@@ -14,38 +14,9 @@ works by way of code injection via sockets. To use this in the OCC instance you 
 ## version
 Component: 2.1.1
 React: 16.7.0
-OCC: 18.6 (will work with previous versions)
+OCC: 18.6 (will work with previous versions)  
 
-## change log
-2.1.0
-  - Adding Jest, Enzyme test support
-
-2.0.0
-  - Added uglify/minify to dynamically loaded chunks
-  - Tested dynamic module importing (React.Lazy, React.Suspense)
-  \* Please note, react-hot-reload does not nicely with [@babel/plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) so use normal class property/method structures
-  - Refactored to use [DLLPlugin](https://webpack.js.org/plugins/dll-plugin/ "Webpack DLLPlugin")
-
-1.7.3
-  - ccRestClient and ProductData examples
-  - moved styled-components to peer dependency
-  - replaced all css-loader implementations for [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
-  - fix origin host bug on some osx systems
-
-1.7.2
-  - Added [React Hot Module Reload](https://github.com/gaearon/react-hot-loader)
-  - updated babelrc
-
-1.6.2
-  - added examples for styled-components
-
-1.5.2
-  - added more webpack loader examples
-  - css-loader, style-loader, postcss, base64 helpers
-
-1.4.2
-  -  updated to react 16.6.3
-  -  Dependency optimizations
+[CHANGELOG](https://github.com/leedium/occ-react-component/blob/master/CHANGELOG.md)
 
 ## Status
 - ~use shared vendor bundle~
