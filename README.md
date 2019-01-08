@@ -100,7 +100,7 @@ The file specific mapping with cover the minified file name and point it to the 
 Charles file mappings and configurations can be found:
 `/charles remote configs`
 
-If Charles is not recording your requests in Mac OSX, plesase follow these (instructions](https://github.com/leedium/occ-react-component/issues/49 "Enable Charles not working in OSX")
+If Charles is not recording your requests in Mac OSX, plesase follow these [instructions](https://github.com/leedium/occ-react-component/issues/49 "Enable Charles not working in OSX")
 
 
 ### 2.  Start the Webpack Dev Server With Hot Module Reload
@@ -155,17 +155,17 @@ Add all proprietory occ dependencies required for your app are referenced as `ex
 
 
 ## Credits
-[nodejs](https://github.com/nodejs/node)
-[webpack 4](https://webpack.js.org/)
-[babel 7](https://github.com/babel/babel)
-[eslint](https://eslint.org/ "Eslint")
-[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
-[reactjs](https://github.com/facebook/react/)
-[react-hot-loader](https://github.com/gaearon/react-hot-loader)
-[styled-components](https://github.com/styled-components/styled-components)
-[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)
-Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration
-Thanks [@bholt](https://github.com/btholt) react inspiration
+[nodejs](https://github.com/nodejs/node)  
+[webpack 4](https://webpack.js.org/)  
+[babel 7](https://github.com/babel/babel)  
+[eslint](https://eslint.org/ "Eslint")   
+[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")  
+[reactjs](https://github.com/facebook/react/)  
+[react-hot-loader](https://github.com/gaearon/react-hot-loader)  
+[styled-components](https://github.com/styled-components/styled-components)  
+[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)   
+Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration   
+Thanks [@bholt](https://github.com/btholt) react inspiration   
 
 
 ## Related
