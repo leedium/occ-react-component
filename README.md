@@ -14,38 +14,9 @@ works by way of code injection via sockets. To use this in the OCC instance you 
 ## version
 Component: 2.1.1
 React: 16.7.0
-OCC: 18.6 (will work with previous versions)
+OCC: 18.6 (will work with previous versions)  
 
-## change log
-2.1.0
-  - Adding Jest, Enzyme test support
-
-2.0.0
-  - Added uglify/minify to dynamically loaded chunks
-  - Tested dynamic module importing (React.Lazy, React.Suspense)
-  \* Please note, react-hot-reload does not nicely with [@babel/plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) so use normal class property/method structures
-  - Refactored to use [DLLPlugin](https://webpack.js.org/plugins/dll-plugin/ "Webpack DLLPlugin")
-
-1.7.3
-  - ccRestClient and ProductData examples
-  - moved styled-components to peer dependency
-  - replaced all css-loader implementations for [styled-components](https://www.styled-components.com/ "ES6 Styled Components")
-  - fix origin host bug on some osx systems
-
-1.7.2
-  - Added [React Hot Module Reload](https://github.com/gaearon/react-hot-loader)
-  - updated babelrc
-
-1.6.2
-  - added examples for styled-components
-
-1.5.2
-  - added more webpack loader examples
-  - css-loader, style-loader, postcss, base64 helpers
-
-1.4.2
-  -  updated to react 16.6.3
-  -  Dependency optimizations
+[CHANGELOG](https://github.com/leedium/occ-react-component/blob/master/CHANGELOG.md)
 
 ## Status
 - ~use shared vendor bundle~
@@ -119,28 +90,9 @@ After you install and create a widget instance in OCC, you will need follow thes
 I personally use Charles, but you should be able to use any web proxy that supports mapping files
 both locally and remotely. The webpack dev server is configured to run on `https://localhost:9000` so you will need to configure your proxy mappings.
 The file specific mapping with cover the minified file name and point it to the non minified file name "".
-\* If your OCC mode has debug compression off then the 2nd mapping will pick up the file naturally.
 
-The `*` wildcards will capture all requests to the widget js folder.  You can change this to be more specific.
-
-<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/master/graphics/proxy-mappings-file.png?raw=true" alt="Charles proxy mappings 1" />
-<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/master/graphics/proxy-mappings.png?raw=true" alt="Charles proxy mappings 2" />
-
-#### \* Important:for Charles, You need to enable SSL Proxying for both your OCC instance and your WebpackDevServer(localhost:9000)
-
-#### Remote Proxy Mappings (localhost:9000)
-
-| occ serverInstance request | mapping |
-| ------------- | ------------- |
-| \*{componentName}/js/{OCC-REACT-COMPONENT_BUNDLE}\* |http://localhost:9000/file/widget/{componentName}/js/{COMPONENT_BUNDLE} |
-| \*{componentName}/js/\* | http://localhost:9000/file/widget/{componentName}/js/ |
-
-#### Local Proxy Mappings (filesystem)
-
-| occ serverInstance request | mapping |
-| ------------- | ------------- |
-| \*{https://instance.oracleoutsouring.com}/file/global/{DEV_OCC_GLOBAL_NAME}\* | file://{PATH_WHERE_YOUR_DEV_BUNDLE_RESIDES} |
-\* remember, the proxy must point to your DEVELOPMENT bundle
+Charles file mappings and configurations can be found:
+`/charles remote configs`
 
 
 ### 2.  Start the Webpack Dev Server With Hot Module Reload

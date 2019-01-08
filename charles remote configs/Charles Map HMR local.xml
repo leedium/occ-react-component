@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<?charles serialisation-version='2.0' ?>
+<mapLocal>
+  <toolEnabled>true</toolEnabled>
+  <mappings>
+    <mapLocalMapping>
+      <sourceLocation>
+        <protocol>https</protocol>
+        <host>{OCC_HOST}</host>
+        <port>443</port>
+        <path>/file/*/global/z4ma.globals.min.js</path>
+        <query>*</query>
+      </sourceLocation>
+      <dest>/{PATH_TO}/occ-shared-resource-bundles/vendorDLL/vendor-dev.dll.js</dest>
+      <enabled>true</enabled>
+      <caseSensitive>true</caseSensitive>
+    </mapLocalMapping>
+  </mappings>
+</mapLocal>
