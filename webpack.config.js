@@ -19,12 +19,14 @@ const OCC_GLOBAL_FILE_NAME = "z4ma.globals.min.js";
 const COMPONENT_NAME = "occReactComponent";
 const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`; //DO NOT CHANGE
 const MAIN_CHUNK_BUNDLE_ID = "index";
+const MIN_NODE_VERSION_FOR_HTTPS = 10;
 
 module.exports = (env, argv) => {
+  const useHttps = parseInt(process.version.split(".")[0].split('v')[1],10) >= MIN_NODE_VERSION_FOR_HTTPS;
   const isProd = argv.mode === "production";
   const dllManifest = require(`./vendorManifest/vendor-${
     isProd ? "prod" : "dev"
-  }.json`);
+    }.json`);
 
   return {
     mode: argv.mode,
@@ -58,7 +60,7 @@ module.exports = (env, argv) => {
     },
     devServer: {
       hot: true,
-      https: true,
+      https: useHttps,
       inline: true,
       disableHostCheck: true,
       port: 9000,
@@ -84,7 +86,7 @@ module.exports = (env, argv) => {
       minimizer: [
         new UglifyJsPlugin({
           test: /\.js(\?.*)?$/i,
-          chunkFilter(chunk) {
+          chunkFilter (chunk) {
             return chunk.name !== MAIN_CHUNK_BUNDLE_ID;
           }
         })
@@ -92,16 +94,16 @@ module.exports = (env, argv) => {
     },
     plugins: isProd
       ? [
-          // new BundleAnalyzerPlugin(),
-          new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: dllManifest,
-            name: `/file/globals/${OCC_GLOBAL_FILE_NAME}`,
-            sourceType: "amd"
-          }),
+        // new BundleAnalyzerPlugin(),
+        new webpack.DllReferencePlugin({
+          context: __dirname,
+          manifest: dllManifest,
+          name: `/file/globals/${OCC_GLOBAL_FILE_NAME}`,
+          sourceType: "amd"
+        }),
 
-          new webpack.HotModuleReplacementPlugin()
-        ]
+        new webpack.HotModuleReplacementPlugin()
+      ]
       : [new webpack.HotModuleReplacementPlugin()],
     module: {
       rules: [
