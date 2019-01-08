@@ -1,5 +1,5 @@
 # occ-react-component
-Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")  
+Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
 <b>Must</b> be used  with [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 
 <img src="https://github.com/leedium/occ-react-component/blob/master/graphics/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
@@ -12,15 +12,15 @@ Hot Module Reload(HRM) allows developers to update component in real-time withou
 works by way of code injection via sockets. To use this in the OCC instance you need a proxy. I use [Charles](https://www.charlesproxy.com/), but I'm sure any proxy which allows you to map and wildcard files will work.  Please see Proxy configuration for charles settings.
 
 ## version
-Component: 2.1.1  
-React: 16.7.0  
-OCC: 18.6 (will work with previous versions)  
+Component: 2.1.1
+React: 16.7.0
+OCC: 18.6 (will work with previous versions)
 
 ## change log
-2.1.0 
+2.1.0
   - Adding Jest, Enzyme test support
-  
-2.0.0 
+
+2.0.0
   - Added uglify/minify to dynamically loaded chunks
   - Tested dynamic module importing (React.Lazy, React.Suspense)
   \* Please note, react-hot-reload does not nicely with [@babel/plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) so use normal class property/method structures
@@ -84,11 +84,11 @@ $ npm i
 
 2.  Update `webpack.config`
 
-`OCC_GLOBAL_FILE_NAME`:  filename of your [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") . ex: `react.vendor.min.js`  
-`COMPONENT_NAME`: name of installed OCC component as defined by file/widget/`{componentName}`    
-`MAIN_CHUNK_BUNDLE_ID`: Id for the entry bundle.  In most cases you will only have one, but depending on how you configure your chunking, this ID is used to prvent uglification/minification as OCC will perform this.  
-`PUBLIC_PATH`: DO NOT CHANGE  
-`externals`:  Mappings to OCC specific require.js dependencies.  ie: (knockout.js, jquery, etc etc...)  
+`OCC_GLOBAL_FILE_NAME`:  filename of your [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") . ex: `react.vendor.min.js`
+`COMPONENT_NAME`: name of installed OCC component as defined by file/widget/`{componentName}`
+`MAIN_CHUNK_BUNDLE_ID`: Id for the entry bundle.  In most cases you will only have one, but depending on how you configure your chunking, this ID is used to prvent uglification/minification as OCC will perform this.
+`PUBLIC_PATH`: DO NOT CHANGE
+`externals`:  Mappings to OCC specific require.js dependencies.  ie: (knockout.js, jquery, etc etc...)
 
 
 In your `/webpack.config.js` update the `dllManifest` variable with the path to where you copied the files. <b>Update only the prefix.</b>
@@ -140,7 +140,7 @@ The `*` wildcards will capture all requests to the widget js folder.  You can ch
 | occ serverInstance request | mapping |
 | ------------- | ------------- |
 | \*{https://instance.oracleoutsouring.com}/file/global/{DEV_OCC_GLOBAL_NAME}\* | file://{PATH_WHERE_YOUR_DEV_BUNDLE_RESIDES} |
-
+\* remember, the proxy must point to your DEVELOPMENT bundle
 
 
 ### 2.  Start the Webpack Dev Server With Hot Module Reload
@@ -188,24 +188,24 @@ $ npm run build:prod
 ```
 
 You will need to use the `DCU` to manually deploy the files and supplementary bundles after the first extension installations.
-I am currently working on a deployment task which will come in a later version. 
+I am currently working on a deployment task which will come in a later version.
 
 ## Configuration
-Add all proprietory occ dependencies required for your app are referenced as `externals` which you can update in `webpack.config.js` under the `externals` property 
+Add all proprietory occ dependencies required for your app are referenced as `externals` which you can update in `webpack.config.js` under the `externals` property
 
 
 ## Credits
-[nodejs](https://github.com/nodejs/node)   
-[webpack 4](https://webpack.js.org/)  
-[babel 7](https://github.com/babel/babel)   
-[eslint](https://eslint.org/ "Eslint")  
-[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow") 
-[reactjs](https://github.com/facebook/react/)   
-[react-hot-loader](https://github.com/gaearon/react-hot-loader)   
-[styled-components](https://github.com/styled-components/styled-components)   
-[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)     
-Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration    
-Thanks [@bholt](https://github.com/btholt) react inspiration    
+[nodejs](https://github.com/nodejs/node)
+[webpack 4](https://webpack.js.org/)
+[babel 7](https://github.com/babel/babel)
+[eslint](https://eslint.org/ "Eslint")
+[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
+[reactjs](https://github.com/facebook/react/)
+[react-hot-loader](https://github.com/gaearon/react-hot-loader)
+[styled-components](https://github.com/styled-components/styled-components)
+[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)
+Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration
+Thanks [@bholt](https://github.com/btholt) react inspiration
 
 
 ## Related
