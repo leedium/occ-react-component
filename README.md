@@ -119,28 +119,9 @@ After you install and create a widget instance in OCC, you will need follow thes
 I personally use Charles, but you should be able to use any web proxy that supports mapping files
 both locally and remotely. The webpack dev server is configured to run on `https://localhost:9000` so you will need to configure your proxy mappings.
 The file specific mapping with cover the minified file name and point it to the non minified file name "".
-\* If your OCC mode has debug compression off then the 2nd mapping will pick up the file naturally.
 
-The `*` wildcards will capture all requests to the widget js folder.  You can change this to be more specific.
-
-<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/master/graphics/proxy-mappings-file.png?raw=true" alt="Charles proxy mappings 1" />
-<img width="300px" src ="https://github.com/leedium/occ-react-component/blob/master/graphics/proxy-mappings.png?raw=true" alt="Charles proxy mappings 2" />
-
-#### \* Important:for Charles, You need to enable SSL Proxying for both your OCC instance and your WebpackDevServer(localhost:9000)
-
-#### Remote Proxy Mappings (localhost:9000)
-
-| occ serverInstance request | mapping |
-| ------------- | ------------- |
-| \*{componentName}/js/{OCC-REACT-COMPONENT_BUNDLE}\* |http://localhost:9000/file/widget/{componentName}/js/{COMPONENT_BUNDLE} |
-| \*{componentName}/js/\* | http://localhost:9000/file/widget/{componentName}/js/ |
-
-#### Local Proxy Mappings (filesystem)
-
-| occ serverInstance request | mapping |
-| ------------- | ------------- |
-| \*{https://instance.oracleoutsouring.com}/file/global/{DEV_OCC_GLOBAL_NAME}\* | file://{PATH_WHERE_YOUR_DEV_BUNDLE_RESIDES} |
-\* remember, the proxy must point to your DEVELOPMENT bundle
+Charles file mappings and configurations can be found:
+`/charles remote configs`
 
 
 ### 2.  Start the Webpack Dev Server With Hot Module Reload

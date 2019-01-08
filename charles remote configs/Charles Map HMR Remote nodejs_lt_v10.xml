@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<?charles serialisation-version='2.0' ?>
+<map>
+  <toolEnabled>true</toolEnabled>
+  <mappings>
+    <mapMapping>
+      <sourceLocation>
+        <protocol>https</protocol>
+        <host>{OCC HOST}</host>
+        <port>443</port>
+        <path>/file/*/widget/occReactComponent/js/bundle.min.js</path>
+        <query>*</query>
+      </sourceLocation>
+      <destLocation>
+        <protocol>http</protocol>
+        <host>localhost</host>
+        <port>9000</port>
+        <path>/file/widget/occReactComponent/js/bundle.js</path>
+      </destLocation>
+      <preserveHostHeader>false</preserveHostHeader>
+      <enabled>true</enabled>
+    </mapMapping>
+    <mapMapping>
+      <sourceLocation>
+        <protocol>https</protocol>
+        <host>{OCC HOST}</host>
+        <port>443</port>
+        <path>*occReactComponent/js/*</path>
+        <query>*</query>
+      </sourceLocation>
+      <destLocation>
+        <protocol>http</protocol>
+        <host>localhost</host>
+        <port>9000</port>
+        <path>/file/widget/occReactComponent/js/</path>
+      </destLocation>
+      <preserveHostHeader>false</preserveHostHeader>
+      <enabled>true</enabled>
+    </mapMapping>
+    <mapMapping>
+      <sourceLocation>
+        <protocol>wss</protocol>
+        <host>localhost</host>
+        <port>9000</port>
+        <path>*</path>
+      </sourceLocation>
+      <destLocation>
+        <protocol>ws</protocol>
+        <host>localhost</host>
+        <port>9000</port>
+      </destLocation>
+      <preserveHostHeader>false</preserveHostHeader>
+      <enabled>true</enabled>
+    </mapMapping>
+    <mapMapping>
+      <sourceLocation>
+        <protocol>https</protocol>
+        <host>localhost</host>
+        <port>9000</port>
+      </sourceLocation>
+      <destLocation>
+        <protocol>http</protocol>
+        <host>localhost</host>
+        <port>9000</port>
+      </destLocation>
+      <preserveHostHeader>false</preserveHostHeader>
+      <enabled>true</enabled>
+    </mapMapping>
+  </mappings>
+</map>
