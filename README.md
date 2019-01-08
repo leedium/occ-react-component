@@ -100,6 +100,8 @@ The file specific mapping with cover the minified file name and point it to the 
 Charles file mappings and configurations can be found:
 `/charles remote configs`
 
+If Charles is not recording your requests in Mac OSX, plesase follow these (instructions](https://github.com/leedium/occ-react-component/issues/49 "Enable Charles not working in OSX")
+
 
 ### 2.  Start the Webpack Dev Server With Hot Module Reload
 ```
