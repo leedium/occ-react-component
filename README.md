@@ -12,11 +12,13 @@ Hot Module Reload(HRM) allows developers to update component in real-time withou
 works by way of code injection via sockets. To use this in the OCC instance you need a proxy. I use [Charles](https://www.charlesproxy.com/), but I'm sure any proxy which allows you to map and wildcard files will work.  Please see Proxy configuration for charles settings.
 
 ## version
+
 Component: 2.1.1
 React: 16.7.0
 OCC: 18.6 (will work with previous versions)  
 
 [CHANGELOG](https://github.com/leedium/occ-react-component/blob/master/CHANGELOG.md)
+
 
 ## Status
 - ~use shared vendor bundle~
@@ -51,7 +53,11 @@ $ npm i
 ```
 
 ### Configuration
-1.  Naturally update occ widget configuration in `/file`
+1.  Naturally update occ widget configuration in `/file` as well as the layout sub folder name `/file/widget/{componentName}/layouts/{componentName}Default`
+(don't forget to update the id in widget template files with your component's name, and rename all the classes)
+```
+ <div data-bind="onRender: onRender.bind($data)" id="{componentName}"></div>
+```
 
 2.  Update `webpack.config`
 
