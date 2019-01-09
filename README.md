@@ -46,6 +46,9 @@ Install the OCC shared-resource-bundle (application widget).
 There are no production level dependencies for React out of the box as they are included in the resource bundle.
 Feel free to add more to the global and your component application.
 
+### Important  
+If the occ-shared-resource-bundle bundle changes then your will need to recompile your components with the updated manifest file.   
+
 
 ## Installation
 ```
