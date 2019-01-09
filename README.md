@@ -169,7 +169,7 @@ Thanks [@bholt](https://github.com/btholt) react inspiration
 
 
 ## Related
-Check out the [React Solution for Oracle Commerce cloud](https://github.com/leedium/occ-react-solution "Oracle Commerce Cloud React Solution") for a working proof on concept of how to use React as a quasi headless UI framework integrated into the OCC Admin.
+ [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 
 
 <br/><br/><br/>
