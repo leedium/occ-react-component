@@ -12,11 +12,13 @@ Hot Module Reload(HRM) allows developers to update component in real-time withou
 works by way of code injection via sockets. To use this in the OCC instance you need a proxy. I use [Charles](https://www.charlesproxy.com/), but I'm sure any proxy which allows you to map and wildcard files will work.  Please see Proxy configuration for charles settings.
 
 ## version
+
 Component: 2.1.1
 React: 16.7.0
 OCC: 18.6 (will work with previous versions)  
 
 [CHANGELOG](https://github.com/leedium/occ-react-component/blob/master/CHANGELOG.md)
+
 
 ## Status
 - ~use shared vendor bundle~
@@ -51,7 +53,11 @@ $ npm i
 ```
 
 ### Configuration
-1.  Naturally update occ widget configuration in `/file`
+1.  Naturally update occ widget configuration in `/file` as well as the layout sub folder name `/file/widget/{componentName}/layouts/{componentName}Default`
+(don't forget to update the id in widget template files with your component's name, and rename all the classes)
+```
+ <div data-bind="onRender: onRender.bind($data)" id="{componentName}"></div>
+```
 
 2.  Update `webpack.config`
 
@@ -93,6 +99,8 @@ The file specific mapping with cover the minified file name and point it to the 
 
 Charles file mappings and configurations can be found:
 `/charles remote configs`
+
+If Charles is not recording your requests in Mac OSX, plesase follow these [instructions](https://github.com/leedium/occ-react-component/issues/49 "Enable Charles not working in OSX")
 
 
 ### 2.  Start the Webpack Dev Server With Hot Module Reload
@@ -147,21 +155,21 @@ Add all proprietory occ dependencies required for your app are referenced as `ex
 
 
 ## Credits
-[nodejs](https://github.com/nodejs/node)
-[webpack 4](https://webpack.js.org/)
-[babel 7](https://github.com/babel/babel)
-[eslint](https://eslint.org/ "Eslint")
-[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")
-[reactjs](https://github.com/facebook/react/)
-[react-hot-loader](https://github.com/gaearon/react-hot-loader)
-[styled-components](https://github.com/styled-components/styled-components)
-[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)
-Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration
-Thanks [@bholt](https://github.com/btholt) react inspiration
+[nodejs](https://github.com/nodejs/node)  
+[webpack 4](https://webpack.js.org/)  
+[babel 7](https://github.com/babel/babel)  
+[eslint](https://eslint.org/ "Eslint")   
+[react flow](https://flow.org/en/docs/frameworks/react/ "React Flow")  
+[reactjs](https://github.com/facebook/react/)  
+[react-hot-loader](https://github.com/gaearon/react-hot-loader)  
+[styled-components](https://github.com/styled-components/styled-components)  
+[Oracle DCU](https://docs.oracle.com/cd/E97801_02/Cloud.18D/ExtendingCC/html/s4405usethedcutograbanduploadsourceco01.html)   
+Adeel Imran - [Jest-Enzyme](https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56) test setup and configuration   
+Thanks [@bholt](https://github.com/btholt) react inspiration   
 
 
 ## Related
-Check out the [React Solution for Oracle Commerce cloud](https://github.com/leedium/occ-react-solution "Oracle Commerce Cloud React Solution") for a working proof on concept of how to use React as a quasi headless UI framework integrated into the OCC Admin.
+ [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 
 
 <br/><br/><br/>
