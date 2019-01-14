@@ -24,6 +24,7 @@
     "jest": true
   },
   "rules": {
+    " no-console": 0,
     "import/no-amd": 0,
     "import/no-unresolved": [
       2,
@@ -39,29 +40,28 @@
         "peerDependencies": true
       }
     ],
+    "no-console": 0,
+    "react/self-closing-comp": 0,
+    "arrow-body-style": 0,
     "no-unused-vars": 0,
+    "no-undef": 0,
+    "prefer-const": 0,
+    "react/jsx-curly-brace-presence": 0,
+    "react/prefer-stateless-function": 0,
+    "no-confusing-arrow": [
+      "off"
+    ],
+    "no-debugger": 0,
+    "no-useless-constructor": 0,
+    "react/no-unused-prop-types": 0,
+    "react/forbid-prop-types": 0,
+    "react/prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-boolean-value": 0,
+    "class-methods-use-this": 0,
+    "import/prefer-default-export": 0,
+    "no-new-func": 0,
     "spaced-comment": 0
-
-
-    //    "no-unused-vars": 0,
-    //    "no-undef": 0,
-    //    "prefer-const": 0,
-    //    "react/jsx-curly-brace-presence": 0,
-    //    "react/prefer-stateless-function": 0,
-    //    "no-confusing-arrow": ["off"]
-    //    "no-debugger": 0,
-    //
-    //    "no-useless-constructor": 0,
-    //    "react/no-unused-prop-types": 0,
-    //    "react/prefer-stateless-function": 0,
-    //    "no-unused-vars": 0,
-    //    "react/forbid-prop-types": 0,
-    //    "react/prop-types": 0,
-    //    "react/destructuring-assignment": 0,
-    //    "react/jsx-boolean-value": 0,
-    //    "class-methods-use-this": 0,
-    //    "import/prefer-default-export": 0,
-    //    "no-new-func":0
   },
   "globals": {
     "DEBUG": false,
