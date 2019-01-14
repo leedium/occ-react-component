@@ -29,9 +29,10 @@ type Props = {
 const StyledProductList = styled.div`
    h2 {
     // text-decoration: underline !important;
-    // color: red !important;
+    // color: green !important;
+    font-size: 20px !important;
+    
    }
-   
   .list-container
       display: flex;
     }
