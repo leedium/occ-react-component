@@ -15,10 +15,10 @@ const postcssPresetEnv = require("postcss-preset-env");
 const cssnano = require("cssnano");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
-const OCC_GLOBAL_FILE_NAME = "z4ma.globals.min.js";
 const COMPONENT_NAME = "occReactComponent";
+const OCC_GLOBAL_FILE_NAME = "z4ma.globals.min.js";
 const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`; //DO NOT CHANGE
-const MAIN_CHUNK_BUNDLE_ID = "index";
+const MAIN_CHUNK_BUNDLE_NAME = "index";
 const MIN_NODE_VERSION_FOR_HTTPS = 10;
 
 module.exports = (env, argv) => {
@@ -31,7 +31,7 @@ module.exports = (env, argv) => {
   return {
     mode: argv.mode,
     entry: {
-      [MAIN_CHUNK_BUNDLE_ID]: "./app/js/index.jsx"
+      [MAIN_CHUNK_BUNDLE_NAME]: "./app/js/index.jsx"
     },
     devtool: isProd ? "none" : "eval-source-map",
     output: {
@@ -83,14 +83,15 @@ module.exports = (env, argv) => {
       chunks: true
     },
     optimization: {
-      minimizer: [
-        new UglifyJsPlugin({
-          test: /\.js(\?.*)?$/i,
-          chunkFilter (chunk) {
-            return chunk.name !== MAIN_CHUNK_BUNDLE_ID;
+      minimizer: [new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i,
+        chunkFilter (chunk) {
+          if (!isProd) {
+            return true
           }
-        })
-      ]
+          return chunk.name !== MAIN_CHUNK_BUNDLE_NAME;
+        }
+      })],
     },
     plugins: isProd
       ? [
@@ -115,7 +116,21 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.jsx?$/,
-          use: ["babel-loader"]
+          use: ["babel-loader",  'react-hot-loader/webpack']
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: "babel-loader"
+            },
+            {
+              loader: "react-svg-loader",
+              options: {
+                jsx: true // true outputs JSX tags
+              }
+            }
+          ]
         },
         {
           test: /\.(jpe?g|png|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,

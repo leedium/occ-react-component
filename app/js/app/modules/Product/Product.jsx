@@ -81,6 +81,7 @@ class Product extends PureComponent<Props, State> {
     const { occDependencies, productId } = this.props;
     const { ccRestClient, ccConstants } = occDependencies;
     ccRestClient.request(ccConstants.ENDPOINT_PRODUCTS_GET_PRODUCT, null, (data) => {
+
       this.setState({
         productData: data
       });

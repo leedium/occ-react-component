@@ -1,9 +1,9 @@
-<div data-bind="" class="" data-oc-id="a-widget">
+<div data-bind="" class="" data-oc-id="occ-react-component">
   <!-- oc layout: panels -->
   <div class="row">
     <div class="oc-panel" data-oc-id="panel-0-0">
       <!-- oc section: occ-react-component -->
-      <div data-bind="onRender: onRender.bind($data)" id="occReactComponent"></div>
+      <div data-bind="onRender: onRender.bind($data), attr:{id: 'react-'+ $data.id()}" ></div>
       <!-- /oc -->
     </div>
   </div>
