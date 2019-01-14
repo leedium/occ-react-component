@@ -48,7 +48,17 @@ define([
       };
     },
     onRender () {
-      ReactDOM.render(<App {...occData}/>, document.getElementById("occReactComponent"));
+      const appContainerReady = () => {
+        setTimeout(() => {
+          const container = document.getElementById(`react-${this.id()}`);
+          if (container) {
+            ReactDOM.render(<App {...occData}/>, container);
+          } else {
+            appContainerReady();
+          }
+        }, 10);
+      };
+      appContainerReady();
     }
   };
 });
