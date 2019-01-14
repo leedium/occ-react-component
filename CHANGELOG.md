@@ -1,4 +1,6 @@
 ## change log
+2.1.2
+  - Fixes [issue 52](https://github.com/leedium/occ-react-component/issues/52) - Unable to clone or creat multiple instances
 2.1.1
   - node version buxfix [issue](https://github.com/leedium/occ-react-component/issues/45)
 2.1.0
