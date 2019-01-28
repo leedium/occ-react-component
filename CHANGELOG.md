@@ -1,6 +1,10 @@
 ## change log
+2.2.2
+  - Adding updated vendor manifest including axios   
+  
 2.1.2
-  - Fixes [issue 52](https://github.com/leedium/occ-react-component/issues/52) - Unable to clone or creat multiple instances
+  - Fixes [issue 52](https://github.com/leedium/occ-react-component/issues/52) - Unable to clone or creat multiple instances   
+  
 2.1.1
   - node version buxfix [issue](https://github.com/leedium/occ-react-component/issues/45) 
   
