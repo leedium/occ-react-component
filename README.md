@@ -15,6 +15,7 @@ Component: 2.2.2
 React: 16.7.0
 OCC: 18.6 (will work with previous versions)  
 
+
 [CHANGELOG](https://github.com/leedium/occ-react-component/blob/master/CHANGELOG.md)
 
 
