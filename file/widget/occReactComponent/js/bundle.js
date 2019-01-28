@@ -63,7 +63,7 @@ define(["/file/globals/z4ma.globals.min.js","knockout","jquery","pubsub","notifi
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "597bee6164fbdc758137";
+/******/ 	var hotCurrentHash = "bae6166cd52791d6ecc0";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -795,7 +795,7 @@ define(["/file/globals/z4ma.globals.min.js","knockout","jquery","pubsub","notifi
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(3))(12);
+module.exports = (__webpack_require__(3))(39);
 
 /***/ }),
 /* 1 */
@@ -886,7 +886,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(3))(18);
+module.exports = (__webpack_require__(3))(45);
 
 /***/ }),
 /* 5 */
@@ -1006,7 +1006,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(3))(2);
+module.exports = (__webpack_require__(3))(4);
 
 /***/ }),
 /* 7 */
@@ -1050,9 +1050,7 @@ var App = function App(props) {
       occDependencies = props.occDependencies;
   console.log("[occ-react-component]:  widget model:", model);
   console.log("[occ-react-component]:  application defined dependencies:", occDependencies);
-  return _react.default.createElement(_react.Fragment, null, _react.default.createElement(Functional, {
-    name: "David"
-  }), _react.default.createElement(_ProductList.default, {
+  return _react.default.createElement(_react.Fragment, null, _react.default.createElement(_ProductList.default, {
     title: "This is a product list"
   }, _react.default.createElement(_Product.default, _extends({
     key: "ni115o003",
