@@ -33,14 +33,12 @@ const Functional = ({name}) => {
   return <div>Hello {name} Welcome to React </div>
 };
 
-
 const App = (props: Props): Function => {
   const { model, occDependencies } = props;
   console.log(`[occ-react-component]:  widget model:`, model);
   console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
   return (
     <Fragment>
-      <Functional name="David"/>
       <ProductList title="This is a product list">
       <Product key="ni115o003" productId="ni115o003" {...props} />
       <Product key="mars_snickers" productId="mars_snickers" {...props} />
