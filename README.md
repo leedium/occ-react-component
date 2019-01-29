@@ -1,6 +1,6 @@
 # occ-react-component
-Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")
-<b>Must</b> be used  with [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
+Standalone Starter React Component for [Oracle Commerce Cloud](https://cloud.oracle.com/en_US/commerce-cloud "Oracle Commerce Cloud")  
+## <b>Must</b> be used  with [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
 
 <img src="https://github.com/leedium/occ-react-component/blob/master/graphics/output.gif?raw=true" width="800px" alt="Oracle Commerce Cloud React Component"/>
 
