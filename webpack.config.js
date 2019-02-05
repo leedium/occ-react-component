@@ -16,7 +16,8 @@ const cssnano = require("cssnano");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const COMPONENT_NAME = "occReactComponent";
-const OCC_GLOBAL_FILE_NAME = "z4ma.globals.min.js";
+const SHARED_BUNDLE_VERSION = "2.3.0";
+const OCC_GLOBAL_FILE_NAME = `vendor-prod.${SHARED_BUNDLE_VERSION}.dll.js`;
 const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`; //DO NOT CHANGE
 const MAIN_CHUNK_BUNDLE_NAME = "index";
 const MIN_NODE_VERSION_FOR_HTTPS = 10;
@@ -26,7 +27,7 @@ module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
   const dllManifest = require(`./vendorManifest/vendor-${
     isProd ? "prod" : "dev"
-    }.json`);
+    }.${SHARED_BUNDLE_VERSION}.json`);
 
   return {
     mode: argv.mode,
