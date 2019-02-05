@@ -1,4 +1,7 @@
 ## change log
+2.3.2
+  - Updated to versioned manifest files   
+
 2.2.2
   - Adding updated vendor manifest including axios   
   
