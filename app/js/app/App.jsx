@@ -39,7 +39,7 @@ const App = (props: Props): Function => {
   console.log(`[occ-react-component]:  application defined dependencies:`, occDependencies);
   return (
     <Fragment>
-      <ProductList title="This is a product list">
+      <ProductList title="This is a product listing">
       <Product key="ni115o003" productId="ni115o003" {...props} />
       <Product key="mars_snickers" productId="mars_snickers" {...props} />
       </ProductList>

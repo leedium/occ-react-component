@@ -17,7 +17,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const COMPONENT_NAME = "occReactComponent";
 const SHARED_BUNDLE_VERSION = "2.3.0";
-const OCC_GLOBAL_FILE_NAME = `vendor-prod.${SHARED_BUNDLE_VERSION}.dll.js`;
+const OCC_GLOBAL_FILE_NAME = `vendor-prod.${SHARED_BUNDLE_VERSION}.dll.min.js`;
 const PUBLIC_PATH = `file/widget/${COMPONENT_NAME}/js/`; //DO NOT CHANGE
 const MAIN_CHUNK_BUNDLE_NAME = "index";
 const MIN_NODE_VERSION_FOR_HTTPS = 10;
