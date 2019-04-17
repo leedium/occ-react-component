@@ -41,7 +41,7 @@ Examples includes the following webpack plugins/loaders
 
 ## Dependencies
 Install the OCC shared-resource-bundle (application widget).
-[occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle")
+[occ-shared-resource-bundles](https://github.com/leedium/occ-shared-resource-bundles "occ-shared-resource-bundles")
 There are no production level dependencies for React out of the box as they are included in the resource bundle.
 Feel free to add more to the global and your component application.
 
@@ -74,8 +74,8 @@ In your `/webpack.config.js` update the `dllManifest` variable with the path to 
   }.json`);
 ```
 You will need the `dev` and `prod` versions as the filenames are postfixed accordingly when built.
-These manifest files are generated with [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle").
-See [instructions](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundle") on how to set this up.
+These manifest files are generated with [occ-shared-resource-bundle](https://github.com/leedium/occ-shared-resource-bundle "occ-shared-resource-bundles").
+See [instructions](https://github.com/leedium/occ-shared-resource-bundles "occ-shared-resource-bundles") on how to set this up.
 
 
 ### Instructions
