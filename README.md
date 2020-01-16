@@ -168,7 +168,8 @@ Thanks [@bholt](https://github.com/btholt) react inspiration
 
 
 ## Related
- [occ-shared-resource-bundles](https://github.com/leedium/occ-shared-resource-bundles "occ-shared-resource-bundles")
+ [occ-shared-resource-bundles](https://github.com/leedium/occ-shared-resource-bundles "occ-shared-resource-bundles")  
+ [occ-graphql](https://github.com/leedium/occ-graphql "Express GraphQL implementation")
 
 
 <br/><br/><br/>
